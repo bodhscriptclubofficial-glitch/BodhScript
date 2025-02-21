@@ -63,8 +63,8 @@ export function Spotlight({
     <motion.div
       ref={containerRef}
       className={cn(
-        'pointer-events-none absolute rounded-full bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops),transparent_80%)] blur-xl transition-opacity duration-200',
-        'from-zinc-50 via-zinc-100 to-zinc-200',
+        'pointer-events-none absolute rounded-full bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops),transparent_80%)] blur-3xl transition-opacity duration-300',
+        'from-orange-400 via-pink-500 to-purple-600',
         isHovered ? 'opacity-100' : 'opacity-0',
         className
       )}
@@ -75,5 +75,20 @@ export function Spotlight({
         top: spotlightTop,
       }}
     />
+    // <motion.div
+    //   ref={containerRef}
+    //   className={cn(
+    //     'pointer-events-none absolute rounded-full bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops),transparent_80%)] blur-3xl transition-opacity duration-300',
+    //     'from-green-400 via-teal-500 to-blue-600',
+    //     isHovered ? 'opacity-100' : 'opacity-0',
+    //     className
+    //   )}
+    //   style={{
+    //     width: size,
+    //     height: size,
+    //     left: spotlightLeft,
+    //     top: spotlightTop,
+    //   }}
+    // />
   )
 }

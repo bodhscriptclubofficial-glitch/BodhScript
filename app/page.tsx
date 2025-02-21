@@ -1,43 +1,26 @@
 'use client'
 import React, { useState } from 'react'
-import { HoveredLink, Menu, MenuItem } from '../components/ui/navbar-menu'
 import { cn } from '@/lib/utils'
 import HeroSection from '../components/hero-section'
-import { FeatureSection } from '@/components/feature-section'
-import { HeroHighlightComp } from '@/components/hero-highlight-comp'
+import { FloatingNav } from '@/components/floating-navbar'
+import { Home, Calendar, Info, Users } from 'lucide-react' // Example icons
+import { GlareCardComp } from '@/components/GlareCardComp'
 
 export default function Page() {
+  const navItems = [
+    { name: 'Home', link: '/', icon: <Home size={20} /> },
+    { name: 'Events', link: '/events', icon: <Calendar size={20} /> },
+    { name: 'About', link: '/about', icon: <Info size={20} /> },
+    { name: 'Members', link: '/members', icon: <Users size={20} /> },
+  ]
+
   return (
     <div className='relative w-full flex flex-col items-center justify-center'>
-      <Navbar className='top-2' />
-
-      {/* Hero Section */}
+      <FloatingNav navItems={navItems} />
       <HeroSection />
-      {/* <HeroHighlightComp /> */}
-    </div>
-  )
-}
+      <GlareCardComp />
 
-function Navbar({ className }: { className?: string }) {
-  const [active, setActive] = useState<string | null>(null)
-
-  return (
-    <div
-      className={cn('fixed top-10 inset-x-0 max-w-2xl mx-auto z-50', className)}
-    >
-      <Menu setActive={setActive}>
-        <MenuItem setActive={setActive} active={active} item='Home'>
-          <div className='flex flex-col space-y-4 text-sm'>
-            <HoveredLink href='/web-dev'>Web Development</HoveredLink>
-            <HoveredLink href='/interface-design'>Interface Design</HoveredLink>
-            <HoveredLink href='/seo'>Search Engine Optimization</HoveredLink>
-            <HoveredLink href='/branding'>Branding</HoveredLink>
-          </div>
-        </MenuItem>
-        <MenuItem setActive={setActive} active={active} item='Events' />
-        <MenuItem setActive={setActive} active={active} item='About' />
-        <MenuItem setActive={setActive} active={active} item='Members' />
-      </Menu>
+      {/* <HeroParallax products={products} /> */}
     </div>
   )
 }
