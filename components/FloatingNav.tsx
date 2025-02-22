@@ -50,7 +50,7 @@ export const FloatingNav = ({
               key={`link=${idx}`}
               href={navItem.link}
               className={cn(
-                'relative dark:text-neutral-50 text-neutral-400  flex items-center space-x-2 text-sm transition-colors duration-200 group  hover:text-cyber-blue'
+                'relative dark:text-neutral-50 text-neutral-400 flex items-center space-x-2 text-sm transition-colors duration-200 group hover:text-cyber-blue'
               )}
             >
               <span>{navItem.icon}</span>
@@ -65,9 +65,12 @@ export const FloatingNav = ({
           </p>
         )}
 
-        <button className='border text-sm font-medium border-neutral-200 dark:border-white/[0.2] text-white hover:text-cyber-blue dark:text-white px-4 py-2 rounded-full hover:shadow-[0_0_10px_rgba(0,255,255,0.8)] transition-shadow duration-300'>
-          <span>Join us</span>
-        </button>
+        {/* Link to Join Us Page */}
+        <Link href='/join-us'>
+          <button className='border text-sm font-medium border-neutral-200 dark:border-white/[0.2] text-white hover:text-cyber-blue dark:text-white px-4 py-2 rounded-full hover:shadow-[0_0_10px_rgba(0,255,255,0.8)] transition-shadow duration-300'>
+            <span>Join us</span>
+          </button>
+        </Link>
       </motion.div>
     </AnimatePresence>
   )

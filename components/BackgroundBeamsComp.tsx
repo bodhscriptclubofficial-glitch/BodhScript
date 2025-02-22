@@ -25,12 +25,10 @@ export function BackgroundBeamsComp() {
     <div className='relative flex flex-col items-center justify-center h-[40rem] w-full bg-neutral-950 rounded-md antialiased mt-16 px-6'>
       <div className='max-w-3xl text-center'>
         {/* Title */}
-        {/* <h1 className='relative z-10 text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-cyan-300 to-cyan-500'>
-          Join Us
-        </h1>{' '} */}
         <span className='block mt-2 '>
           <TypewriterEffect words={words} />
         </span>
+
         {/* Description */}
         <p className='relative z-10 text-lg md:text-xl text-slate-300 mt-6 leading-relaxed'>
           Excited to join a team of innovative and passionate technology-driven
@@ -38,20 +36,22 @@ export function BackgroundBeamsComp() {
           cutting-edge solutions. Turn ideas into reality and collaborate for
           success.
         </p>
-        {/* QR Code and Button Section */}
-        <div className='flex flex-col md:flex-row items-center justify-center gap-6 mt-10'>
-          {/* QR Code */}
-          <div className='relative w-48 h-48 p-2 bg-neutral-800 rounded-lg shadow-lg border border-cyan-400'>
-            <img
-              src='/images/Bodh_Geyan_QR_LPU_Colored.png'
-              alt='QR Code'
-              className='w-full h-full object-cover rounded-md'
-            />
-          </div>
 
-          <button className='relative flex items-center justify-center px-8 py-4 text-lg font-semibold text-white border-2 border-cyan-400 rounded-full transition-all duration-300 bg-transparent hover:bg-cyan-400 hover:text-neutral-950 hover:shadow-[0_0_20px_rgba(0,255,255,0.8)] hover:scale-105 focus:outline-none focus:ring-4 focus:ring-cyan-500 cursor-pointer'>
+        {/* QR Code and Button Section (Button Above QR Code) */}
+        <div className='flex flex-col items-center justify-center space-y-4 mt-10'>
+          {/* Join Us Button */}
+          <button className='relative flex items-center justify-center px-8 py-2 text-lg font-semibold text-white border-2 border-cyan-400 rounded-full transition-all duration-300 bg-transparent hover:bg-cyan-400 hover:text-neutral-950 hover:shadow-[0_0_20px_rgba(0,255,255,0.8)] hover:scale-105 focus:outline-none focus:ring-4 focus:ring-cyan-500 cursor-pointer -mt-4 mb-4'>
             Join Us
           </button>
+
+          {/* QR Code */}
+          <div className='relative w-48 h-48 p-2 bg-neutral-800 rounded-lg shadow-lg border border-cyan-400 '>
+            <img
+              src='/images/qr2.jpg'
+              alt='QR Code'
+              className='w-full h-full object-cover rounded-md '
+            />
+          </div>
         </div>
       </div>
 

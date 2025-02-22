@@ -1,7 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Cpu, Zap, Lock } from 'lucide-react'
+import Link from 'next/link'
+
 // Define Feature type
 interface Feature {
   image: string
@@ -10,16 +11,15 @@ interface Feature {
 // Feature data
 const features: Feature[] = [
   {
-    image: '/images/Poster.png', // Corrected path
+    image: '/images/Poster.png',
   },
   {
-    image: '/images/Poster.png', // Corrected path
+    image: '/images/Poster.png',
   },
   {
-    image: '/images/Poster.png', // Corrected path
+    image: '/images/Poster.png',
   },
 ]
-
 
 export default function Features() {
   const [text, setText] = useState<string>('')
@@ -40,8 +40,8 @@ export default function Features() {
   }, [])
 
   return (
-    <section id='features' className='py-20 relative  overflow-hidden mb-4'>
-      <div className=' mx-auto px-4 text-center relative z-10'>
+    <section id='features' className='py-20 relative overflow-hidden mb-4'>
+      <div className='mx-auto px-4 text-center relative z-10'>
         {/* Heading */}
         <h2
           className='text-4xl md:text-6xl font-bold mb-6 text-cyber-blue cyber-glitch'
@@ -51,13 +51,12 @@ export default function Features() {
           <span className='text-cyber-pink pl-4 '>Events</span>
         </h2>
 
-        {/* CTA Button */}
-        <a
-          href='#events'
-          className='bg-cyber-pink text-white px-6 py-3 rounded-full font-semibold hover:bg-cyber-blue hover:text-cyber-black transition duration-300 animate-strong-pulse mt-8 '
-        >
-          Check Events
-        </a>
+        {/* CTA Button (Uses Link for Navigation) */}
+        <Link href='/events'>
+          <span className='bg-cyber-pink text-white px-6 py-3 rounded-full font-semibold hover:bg-cyber-blue hover:text-cyber-black transition duration-300 animate-strong-pulse mt-8 inline-block cursor-pointer'>
+            Check Events
+          </span>
+        </Link>
 
         {/* Feature Cards */}
         <div className='grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 w-full h-full'>
@@ -72,14 +71,6 @@ export default function Features() {
                 alt='Event'
                 className='w-full h-48 object-cover rounded-md mb-4'
               />
-
-              {/* Register Button */}
-              {/* <a
-                href='#register'
-                className='text-gray-300 px-4 py-3 rounded-full font-semibold border-2 border-gray-600 hover:text-white hover:bg-text-cyber-blue transition duration-300 shadow-md'
-              >
-                Register Now
-              </a> */}
             </div>
           ))}
         </div>
