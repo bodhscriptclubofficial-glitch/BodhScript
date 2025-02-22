@@ -10,6 +10,10 @@ import Features from '@/components/features'
 import MarqueeCard from '@/components/MarqueeCard'
 import { Card } from '@/components/ui/card'
 import { InfiniteMovingCards } from '@/components/ui/infinite-moving-cards'
+import { Bento } from '@/components/Bento'
+import { BentoGrid2Comp } from '@/components/BentoGrid2'
+import { BackgroundBeams } from '@/components/ui/background-beams'
+import { BackgroundBeamsComp } from '@/components/BackgroundBeamsComp'
 
 export default function Page() {
   const navItems = [
@@ -26,7 +30,10 @@ export default function Page() {
       <Features />
       {/* <InfiniteMovingCards /> */}
       {/* <GlareCardComp /> */}
-      <Card />
+      {/* <Card /> */}
+      {/* <Bento /> */}
+      <BentoGrid2Comp />
+      <BackgroundBeamsComp />
       {/* <FeatureScrollBasedVelocity /> */}
       {/* <HeroParallax products={products} /> */}
     </div>

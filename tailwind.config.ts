@@ -44,25 +44,26 @@ export default {
       },
     },
   },
-  plugins: [
-    function addVariablesForColors({ addBase, theme }: any) {
-      const flattenColorPalette = (colors: any) =>
-        Object.entries(colors).reduce(
-          (acc, [key, value]) =>
-            typeof value === 'object'
-              ? { ...acc, ...value }
-              : { ...acc, [key]: value },
-          {}
-        )
+  plugins: [addVariablesForColors],
+}
 
-      let allColors = flattenColorPalette(theme('colors'))
-      let newVars = Object.fromEntries(
-        Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
-      )
+// Function to add CSS variables for colors
+function addVariablesForColors({ addBase, theme }: any) {
+  const flattenColorPalette = (colors: any) =>
+    Object.entries(colors).reduce(
+      (acc, [key, value]) =>
+        typeof value === 'object'
+          ? { ...acc, ...value }
+          : { ...acc, [key]: value },
+      {}
+    )
 
-      addBase({
-        ':root': newVars,
-      })
-    },
-  ],
+  let allColors = flattenColorPalette(theme('colors'))
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  )
+
+  addBase({
+    ':root': newVars,
+  })
 }

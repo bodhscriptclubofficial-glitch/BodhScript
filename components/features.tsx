@@ -39,7 +39,7 @@ export default function Features() {
   }, [])
 
   return (
-    <section id='features' className='py-20 relative  overflow-hidden'>
+    <section id='features' className='py-20 relative  overflow-hidden mb-4'>
       <div className='container mx-auto px-4 text-center relative z-10'>
         {/* Heading */}
         <h2
@@ -57,14 +57,14 @@ export default function Features() {
 
         {/* CTA Button */}
         <a
-          href='#cta'
+          href='#events'
           className='bg-cyber-pink text-white px-6 py-3 rounded-full font-semibold hover:bg-cyber-blue hover:text-cyber-black transition duration-300 animate-strong-pulse '
         >
           Check Events
         </a>
 
         {/* Feature Cards */}
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-8 mt-12'>
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 w-full h-full'>
           {features.map((feature, index) => (
             <div
               key={index}
