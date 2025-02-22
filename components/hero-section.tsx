@@ -59,7 +59,7 @@ function SplineScene({ scene, className }) {
 
 export default function HeroSection() {
   return (
-    <div className='w-full h-screen bg-black/[0.96] relative overflow-hidden'>
+    <div className='w-full h-screen bg-black/[0.96] relative overflow-hidden mb-8'>
       {/* Spotlight effect */}
       <Spotlight
         className='-top-40 left-0 md:left-60 md:-top-20'
@@ -72,18 +72,19 @@ export default function HeroSection() {
           {/* Text container with minimum height */}
           <div className='min-h-[120px] md:min-h-[180px]'>
             <h1 className='text-5xl md:text-7xl font-extrabold tracking-wide'>
-              <div className='bg-clip-text text-transparent bg-gradient-to-r from-violet-500 via-cyan-400 to-purple-500 animate-gradient-x'>
+              <div className='bg-clip-text text-gray-200 orbitron-text'>
                 <TypingAnimation>Welcome to</TypingAnimation>
               </div>
-              <div className='bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 animate-gradient-x'>
+              <div className='bg-clip-text text-cyber-blue'>
                 <TypingAnimation delay={1000}>Bodh Script Club</TypingAnimation>
               </div>
             </h1>
           </div>
-          <p className='mt-2 text-xl text-neutral-300 max-w-xl leading-relaxed'>
-            Unlock the power of <b>creative coding</b> and
-            <b> immersive UI design.</b>
-            <br /> Join us to explore cutting-edge technologies.
+          <p className='mt-2 text-xl text-neutral-300 max-w-2xl leading-relaxed'>
+            Unlock the power of <span>creative coding</span> and
+            <span> immersive UI design.</span>
+            <br /> Join us to explore cutting-edge technologies and bring ideas
+            to life.
           </p>
         </div>
 

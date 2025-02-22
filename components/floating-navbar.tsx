@@ -50,11 +50,11 @@ export const FloatingNav = ({
               key={`link=${idx}`}
               href={navItem.link}
               className={cn(
-                'relative dark:text-neutral-50 text-neutral-400 hover:text-white flex items-center space-x-2 text-sm transition-colors duration-200 group'
+                'relative dark:text-neutral-50 text-neutral-400  flex items-center space-x-2 text-sm transition-colors duration-200 group  hover:text-cyber-blue'
               )}
             >
               <span>{navItem.icon}</span>
-              <span className="relative after:content-[''] after:absolute after:left-0 after:bottom-[-2px] after:w-0 after:h-[2px] after:bg-cyan-400 after:transition-all after:duration-300 after:group-hover:w-full after:shadow-[0_0_8px_cyan]">
+              <span className="relative after:content-[''] after:absolute after:left-0 after:bottom-[-2px] after:w-0 after:h-[2px] after:bg-cyan-400 after:transition-all after:duration-300 after:group-hover:w-full after:shadow-[0_0_8px_cyan] hover:text-cyber-blue">
                 {navItem.name}
               </span>
             </Link>
@@ -65,7 +65,7 @@ export const FloatingNav = ({
           </p>
         )}
 
-        <button className='border text-sm font-medium border-neutral-200 dark:border-white/[0.2] text-white dark:text-white px-4 py-2 rounded-full hover:shadow-[0_0_10px_rgba(0,255,255,0.8)] transition-shadow duration-300'>
+        <button className='border text-sm font-medium border-neutral-200 dark:border-white/[0.2] text-white hover:text-cyber-blue dark:text-white px-4 py-2 rounded-full hover:shadow-[0_0_10px_rgba(0,255,255,0.8)] transition-shadow duration-300'>
           <span>Login</span>
         </button>
       </motion.div>

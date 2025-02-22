@@ -4,7 +4,12 @@ import { cn } from '@/lib/utils'
 import HeroSection from '../components/hero-section'
 import { FloatingNav } from '@/components/floating-navbar'
 import { Home, Calendar, Info, Users } from 'lucide-react' // Example icons
-import { GlareCardComp } from '@/components/GlareCardComp'
+import GlareCardComp from '../components/GlareCardComp'
+import { FeatureScrollBasedVelocity } from '@/components/feature-scroll-based-velocity'
+import Features from '@/components/features'
+import MarqueeCard from '@/components/MarqueeCard'
+import { Card } from '@/components/ui/card'
+import { InfiniteMovingCards } from '@/components/ui/infinite-moving-cards'
 
 export default function Page() {
   const navItems = [
@@ -18,8 +23,11 @@ export default function Page() {
     <div className='relative w-full flex flex-col items-center justify-center'>
       <FloatingNav navItems={navItems} />
       <HeroSection />
-      <GlareCardComp />
-
+      <Features />
+      {/* <InfiniteMovingCards /> */}
+      {/* <GlareCardComp /> */}
+      <Card />
+      {/* <FeatureScrollBasedVelocity /> */}
       {/* <HeroParallax products={products} /> */}
     </div>
   )
