@@ -66,7 +66,7 @@ export const FloatingNav = ({
         )}
 
         <button className='border text-sm font-medium border-neutral-200 dark:border-white/[0.2] text-white hover:text-cyber-blue dark:text-white px-4 py-2 rounded-full hover:shadow-[0_0_10px_rgba(0,255,255,0.8)] transition-shadow duration-300'>
-          <span>Login</span>
+          <span>Join us</span>
         </button>
       </motion.div>
     </AnimatePresence>

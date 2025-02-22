@@ -20,6 +20,7 @@ const features: Feature[] = [
   },
 ]
 
+
 export default function Features() {
   const [text, setText] = useState<string>('')
   const fullText = 'Events to come'
@@ -40,25 +41,20 @@ export default function Features() {
 
   return (
     <section id='features' className='py-20 relative  overflow-hidden mb-4'>
-      <div className='container mx-auto px-4 text-center relative z-10'>
+      <div className=' mx-auto px-4 text-center relative z-10'>
         {/* Heading */}
         <h2
-          className='text-4xl md:text-5xl font-bold mb-6 text-cyber-blue cyber-glitch'
+          className='text-4xl md:text-6xl font-bold mb-6 text-cyber-blue cyber-glitch'
           data-text='Upcoming Events'
         >
           Upcoming
-          <span className='text-cyber-pink pl-4'>Events</span>
+          <span className='text-cyber-pink pl-4 '>Events</span>
         </h2>
-
-        {/* Typing Effect */}
-        <p className='text-xl md:text-2xl mb-8 text-cyber-yellow h-8'>
-          Events to come
-        </p>
 
         {/* CTA Button */}
         <a
           href='#events'
-          className='bg-cyber-pink text-white px-6 py-3 rounded-full font-semibold hover:bg-cyber-blue hover:text-cyber-black transition duration-300 animate-strong-pulse '
+          className='bg-cyber-pink text-white px-6 py-3 rounded-full font-semibold hover:bg-cyber-blue hover:text-cyber-black transition duration-300 animate-strong-pulse mt-8 '
         >
           Check Events
         </a>

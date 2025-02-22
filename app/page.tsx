@@ -11,9 +11,10 @@ import MarqueeCard from '@/components/MarqueeCard'
 import { Card } from '@/components/ui/card'
 import { InfiniteMovingCards } from '@/components/ui/infinite-moving-cards'
 import { Bento } from '@/components/Bento'
-import { BentoGrid2Comp } from '@/components/BentoGrid2'
+import { BentoGrid2Comp } from '@/components/BentoGrid'
 import { BackgroundBeams } from '@/components/ui/background-beams'
 import { BackgroundBeamsComp } from '@/components/BackgroundBeamsComp'
+import { TypewriterEffectComp } from '@/components/TypewriterEffectComp'
 
 export default function Page() {
   const navItems = [
