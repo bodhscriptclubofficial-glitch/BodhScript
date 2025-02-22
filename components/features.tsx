@@ -69,7 +69,7 @@ export default function Features() {
               <img
                 src={feature.image}
                 alt='Event'
-                className='w-full h-48 object-cover rounded-md mb-4'
+                className='w-full h-60 object-cover rounded-md mb-4 hover:cursor-pointer'
               />
             </div>
           ))}

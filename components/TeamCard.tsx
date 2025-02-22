@@ -1,37 +1,28 @@
 import * as React from 'react'
+import { Card, CardHeader, CardTitle } from '@/components/ui/card'
+import Image from 'next/image'
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-
-export function TeamCard() {
+export function TeamCard({ name = 'Anurag Sharma' }) {
   return (
-    <Card className='w-[350px]'>
-      <CardHeader>
-        <CardTitle>Create project</CardTitle>
-        <CardDescription>Deploy your new project in one-click.</CardDescription>
+    <Card className='w-[350px] h-[300px] bg-black border border-neutral-300 shadow-lg rounded-lg p-4   '>
+      <CardHeader className='flex flex-col items-center text-center w-full p-0'>
+        {/* Image Container */}
+        <div className='w-full h-[200px] overflow-hidden rounded-md'>
+          <Image
+            src={'/images/Poster.png'}
+            alt={`${name}'s profile`}
+            layout='responsive'
+            width={300}
+            height={200}
+            className='object-cover'
+          />
+        </div>
       </CardHeader>
-      <CardContent>
-        <form>
-          <div className='grid w-full items-center gap-4'>
-            <div className='flex flex-col space-y-1.5'>
-              <Label htmlFor='name'>Name</Label>
-              <Input id='name' placeholder='Name of your project' />
-            </div>
-            <div className='flex flex-col space-y-1.5'>
-              <Label htmlFor='framework'>Framework</Label>
-            </div>
-          </div>
-        </form>
-      </CardContent>
-      <CardFooter className='flex justify-between'>Footer</CardFooter>
+
+      {/* Name Section */}
+      <div className='text-white text-lg font-semibold text-center mt-8 '>
+        {name}
+      </div>
     </Card>
   )
 }

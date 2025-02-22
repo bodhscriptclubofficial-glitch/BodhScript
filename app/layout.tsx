@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { FloatingNav } from '@/components/FloatingNav'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -28,16 +29,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <head>
-        <link
-          href='https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;1,300&family=Noto+Sans+Kawi:wght@500&family=Orbitron:wght@400..900&family=Spline+Sans:wght@300..700&display=swap'
-          rel='stylesheet'
-        />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.className} bg-cyber-black text-white`}
       >
-        <div className='cyber-lines'></div>
+        <div className='m-4'>
+          <FloatingNav />
+        </div>
+        {/* <div className='cyber-lines'></div> */}
         {children}
       </body>
     </html>
