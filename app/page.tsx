@@ -1,12 +1,12 @@
 'use client'
 import React, { useState } from 'react'
 import { cn } from '@/lib/utils'
-import HeroSection from '../components/hero-section'
-import { FloatingNav } from '@/components/floating-navbar'
+import HeroSection from '../components/HeroSection'
+import { FloatingNav } from '@/components/FloatingNav'
 import { Home, Calendar, Info, Users } from 'lucide-react' // Example icons
 import GlareCardComp from '../components/GlareCardComp'
 import { FeatureScrollBasedVelocity } from '@/components/feature-scroll-based-velocity'
-import Features from '@/components/features'
+import Features from '@/components/Features'
 import MarqueeCard from '@/components/MarqueeCard'
 import { Card } from '@/components/ui/card'
 import { InfiniteMovingCards } from '@/components/ui/infinite-moving-cards'
@@ -14,7 +14,7 @@ import { Bento } from '@/components/Bento'
 import { BentoGrid2Comp } from '@/components/BentoGrid'
 import { BackgroundBeams } from '@/components/ui/background-beams'
 import { BackgroundBeamsComp } from '@/components/BackgroundBeamsComp'
-import { TypewriterEffectComp } from '@/components/TypewriterEffectComp'
+// import { TypewriterEffectComp } from '@/components/TypewriterEffectComp'
 
 export default function Page() {
   const navItems = [

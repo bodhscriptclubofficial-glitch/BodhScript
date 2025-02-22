@@ -1,6 +1,6 @@
 'use client'
 
-import Features from '@/components/features'
+import Features from '@/components/Features'
 
 export default function EventsPage() {
   return <Features />
