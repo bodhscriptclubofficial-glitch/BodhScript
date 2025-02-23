@@ -3,19 +3,11 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
-// Define Feature type
 interface Feature {
   image: string
 }
 
-// Feature data
 const features: Feature[] = [
-  {
-    image: '/images/Poster.png',
-  },
-  {
-    image: '/images/Poster.png',
-  },
   {
     image: '/images/Poster.png',
   },
@@ -48,31 +40,35 @@ export default function Features() {
           data-text='Upcoming Events'
         >
           Upcoming
-          <span className='text-cyber-pink pl-4 '>Events</span>
+          <span className='text-cyber-pink pl-4'>Events</span>
         </h2>
 
-        {/* CTA Button (Uses Link for Navigation) */}
+        {/* CTA Button */}
         <Link href='/events'>
           <span className='bg-cyber-pink text-white px-6 py-3 rounded-full font-semibold hover:bg-cyber-blue hover:text-cyber-black transition duration-300 animate-strong-pulse mt-8 inline-block cursor-pointer'>
             Check Events
           </span>
         </Link>
 
-        {/* Feature Cards */}
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 w-full h-full'>
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className='bg-cyber-black p-6 rounded-lg border border-gray-600 shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-cyber-blue/50'
-            >
-              {/* Image */}
-              <img
-                src={feature.image}
-                alt='Event'
-                className='w-full h-60 object-cover rounded-md mb-4 hover:cursor-pointer'
-              />
-            </div>
-          ))}
+        {/* Feature Cards - Centered Grid */}
+        <div className='flex justify-center w-full mt-12'>
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl ml-[38%]'>
+            {features.map((feature, index) => (
+              <div
+                key={index}
+                className='bg-cyber-black p-8 rounded-lg border border-gray-600 shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-cyber-blue/50 flex justify-center items-center h-80 w-96'
+              >
+                {/* Image Container */}
+                <div className='relative w-full h-full flex items-center justify-center'>
+                  <img
+                    src={feature.image}
+                    alt='Event'
+                    className='w-full h-full object-contain rounded-md hover:cursor-pointer'
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

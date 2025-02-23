@@ -19,7 +19,6 @@ export default function Page() {
     <div className='relative w-full flex flex-col items-center justify-center '>
       <FloatingNav navItems={navItems} />
       <HeroSection />
-      <Organizer />
       <BentoGridComp />
       <BackgroundBeamsComp />
     </div>
