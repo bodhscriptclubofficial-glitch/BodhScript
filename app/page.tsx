@@ -1,12 +1,11 @@
 'use client'
-import React, { useState } from 'react'
-import { cn } from '@/lib/utils'
 import HeroSection from '../components/HeroSection'
 import { FloatingNav } from '@/components/FloatingNav'
 import { Home, Calendar, Info, Users } from 'lucide-react'
 import Features from '@/components/Features'
-import { BentoGrid2Comp } from '@/components/BentoGrid'
+import { BentoGridComp } from '@/components/BentoGridComp'
 import { BackgroundBeamsComp } from '@/components/BackgroundBeamsComp'
+import { Organizer } from '@/components/Organizer'
 
 export default function Page() {
   const navItems = [
@@ -17,11 +16,12 @@ export default function Page() {
   ]
 
   return (
-    <div className='relative w-full flex flex-col items-center justify-center'>
+    <div className='relative w-full flex flex-col items-center justify-center '>
       <FloatingNav navItems={navItems} />
       <HeroSection />
       <Features />
-      <BentoGrid2Comp />
+      <Organizer />
+      <BentoGridComp />
       <BackgroundBeamsComp />
     </div>
   )

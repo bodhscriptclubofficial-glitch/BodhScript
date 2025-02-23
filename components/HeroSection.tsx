@@ -12,7 +12,7 @@ const TypingAnimation = ({
   className = '',
   duration = 100,
   delay = 0,
-}) => {
+}: any) => {
   const [displayedText, setDisplayedText] = useState('')
   const [started, setStarted] = useState(false)
 
@@ -43,7 +43,7 @@ const TypingAnimation = ({
 }
 
 // SplineScene component
-function SplineScene({ scene, className }) {
+function SplineScene({ scene, className }: any) {
   return (
     <Suspense
       fallback={

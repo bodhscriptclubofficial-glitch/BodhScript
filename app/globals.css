@@ -4,6 +4,7 @@
   --font-geist-sans: 'Geist', sans-serif;
   --font-geist-mono: 'Geist Mono', monospace;
 }
+
 @keyframes infinite-scroll {
   from {
     transform: translateX(0%);
@@ -22,6 +23,30 @@
     transform: translateY(0);
   }
 }
+/* For Webkit Browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 10px; /* Scrollbar width */
+  display: none;
+}
+
+/* Track (background of the scrollbar) */
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px; /* Border radius */
+}
+
+/* Handle (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px; /* Border radius */
+}
+
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 .animate-fade-inMem {
   animation: fadeIn 1s ease-in-out 1.5s forwards;
   opacity: 0;
@@ -313,57 +338,4 @@ body {
   }
 }
 
-/* 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-} */
 
-/* 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-} */
-
-/* @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-} */
-
-
-
-/* @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-} */
-
-
-
-
-
-
-
-/* @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-} */

@@ -1,13 +1,12 @@
-import { cn } from '@/lib/utils'
 import React from 'react'
 import { BentoGrid, BentoGridItem } from './ui/bento-grid'
 
-export function BentoGrid2Comp() {
+export function BentoGridComp() {
   return (
-    <div className='max-w-6xl mx-auto px-4'>
+    <div className='max-w-6xl mx-auto px-4 mt-10'>
       {/* Heading */}
       <h2
-        className='text-4xl md:text-5xl font-bold text-cyber-blue text-center underline underline-offset-8 orbitron-text mb-10'
+        className='text-4xl md:text-5xl font-bold text-cyber-blue text-center   mb-10'
         data-text='Gallery'
       >
         Gallery

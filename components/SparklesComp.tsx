@@ -3,7 +3,6 @@ import React from 'react'
 import { SparklesCore } from '@/components/ui/sparkles'
 import { TypewriterEffect } from './ui/typewriter-effect'
 import { motion } from 'framer-motion'
-import { Card } from './ui/card'
 import { TeamCard } from './TeamCard'
 
 export function SparklesComp() {
@@ -15,7 +14,7 @@ export function SparklesComp() {
           words={[
             {
               text: 'Meet',
-              className: 'text-indigo-500 text-5xl md:text-7xl font-extrabold',
+              className: 'text-indigo-500 text-5xl md:text-7xl font-extrabold ',
             },
             {
               text: 'the',
@@ -56,12 +55,12 @@ export function SparklesComp() {
         </div>
       </div>
       <div className='flex items-center flex-wrap justify-around m-10 gap-10'>
-        <TeamCard name='Divya' />
-        <TeamCard name='Something' />
-        <TeamCard name='Something' />
-        <TeamCard name='Something' />
-        <TeamCard name='Something' />
-        <TeamCard name='Something' />
+        <TeamCard name='Divya' image='/images/team/Divya.png' />
+        <TeamCard name='Harsh Yadav' image='/images/team/Harsh.jpg' />
+        <TeamCard name='Manish Mahto' image='/images/team/Manish.jpg' />
+        <TeamCard name='Nilotpal Das' image='/images/team/Nilotpal.jpg' />
+        <TeamCard name='Piyush' image='/images/team/Piyush.jpg' />
+        <TeamCard name='Subhadeep Dey' image='/images/team/Subhadeep.jpg' />
       </div>
     </>
   )

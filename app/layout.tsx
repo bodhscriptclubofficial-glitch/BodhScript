@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { FloatingNav } from '@/components/FloatingNav'
+import { Toaster } from '@/components/ui/sonner'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -17,7 +18,7 @@ const geistMono = Geist_Mono({
 const inter = Inter({ subsets: ['latin'] }) // Keeping Inter for global use
 
 export const metadata: Metadata = {
-  title: 'irhamna.ai - The Future of AI',
+  title: 'Bodh Script Club',
   description: 'Experience the next generation of AI with irhamna.ai',
   generator: 'v0.dev',
 }
@@ -32,11 +33,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${inter.className} bg-cyber-black text-white`}
       >
-        <div className='m-4'>
+        <div className='mt-4'>
           <FloatingNav />
         </div>
         {/* <div className='cyber-lines'></div> */}
         {children}
+        <Toaster />
       </body>
     </html>
   )
