@@ -29,7 +29,7 @@ const content = [
     content: (
       <div className='h-full w-full flex items-center justify-center text-white'>
         <Image
-          src='/images/team/Girish.jpg'
+          src='/images/team/girish.jpg'
           width={500}
           height={500}
           className='w-full h-full object-contain transition-opacity duration-500'
