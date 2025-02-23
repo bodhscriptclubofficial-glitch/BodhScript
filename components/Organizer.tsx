@@ -25,7 +25,7 @@ const content = [
     title: 'Girish Kumar',
     subtitle: 'Asst. Professor & Organizer',
     description:
-      'Girish Kumar holds a B.Sc. (Computer Science) Degree and PGDCA, MIT from GNDU and is a Research Scholar currently working as an Assistant Professor at Lovely Professional University. He has more than 23 years of teaching experience. He has four patents to his credit and has published more than 40 research papers in different national as well as international conferences and journals. He has authored four books published by reputed national and international publishers. He is also a Certified Academic Associate by IBM for DB2. He is an active member of IAENG- International Association of Engineers',
+      'Girish Kumar holds a B.Sc. (Computer Science) Degree and PGDCA, MIT from GNDU and is a Research Scholar currently working as an Assistant Professor at Lovely Professional University. He has more than 23 years of teaching experience. He has 24 patents to his credit, 10 books in 4 different languages and has published more than 40 research papers in different national as well as international conferences and journals. He has authored four books published by reputed national and international publishers. He is also a Certified Academic Associate by IBM for DB2. He is an active member of IAENG- International Association of Engineers',
     content: (
       <div className='h-full w-full flex items-center justify-center text-white'>
         <Image

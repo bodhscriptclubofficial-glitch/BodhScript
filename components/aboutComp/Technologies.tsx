@@ -9,6 +9,10 @@ const technologies = [
   'Node.js',
   'Python',
   'AI/ML',
+  'C',
+  'C++',
+  'Java',
+  'Python',
   'Cybersecurity',
 ]
 
