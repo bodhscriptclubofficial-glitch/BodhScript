@@ -29,29 +29,33 @@ export function JoinUsForm() {
     idcardBase64: '',
   })
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
   return (
-    <div className='max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black mt-4'>
-      <h2 className='font-bold text-xl text-neutral-800 dark:text-neutral-200'>
+    <div className='max-w-md w-full mx-auto rounded-lg p-6 shadow-lg bg-neutral-900 text-white mt-6 border border-neutral-700'>
+      <h2 className='font-bold text-2xl text-white'>
         Welcome to BodhScriptClub
       </h2>
-      <p className='text-neutral-600 text-sm max-w-sm mt-2 dark:text-neutral-300'>
+      <p className='text-neutral-400 text-sm mt-2'>
         Please fill out the form to join us!
       </p>
 
       <form
-        className='my-8'
+        className='my-8 space-y-4'
         method='post'
         action={
           'https://script.google.com/macros/s/AKfycbyWnwvv62fidCTK-kGChjygQc2_AX0rhpLcs1x4WkR29slPkBviiqPclSC-fzbAbZq-BA/exec'
         }
       >
         <LabelInputContainer>
-          <Label htmlFor='name'>Full Name</Label>
+          <Label htmlFor='name' className='text-neutral-300'>
+            Full Name
+          </Label>
           <Input
             id='name'
             name='name'
@@ -60,11 +64,14 @@ export function JoinUsForm() {
             value={formData.name}
             onChange={handleChange}
             required
+            className='bg-neutral-800 text-white border border-neutral-600 focus:ring-2 focus:ring-blue-500'
           />
         </LabelInputContainer>
 
         <LabelInputContainer>
-          <Label htmlFor='email'>Email Address</Label>
+          <Label htmlFor='email' className='text-neutral-300'>
+            Email Address
+          </Label>
           <Input
             id='email'
             name='email'
@@ -73,11 +80,14 @@ export function JoinUsForm() {
             value={formData.email}
             onChange={handleChange}
             required
+            className='bg-neutral-800 text-white border border-neutral-600 focus:ring-2 focus:ring-blue-500'
           />
         </LabelInputContainer>
 
         <LabelInputContainer>
-          <Label htmlFor='contact'>Contact Number</Label>
+          <Label htmlFor='contact' className='text-neutral-300'>
+            Contact Number
+          </Label>
           <Input
             id='contact'
             name='contact'
@@ -86,35 +96,49 @@ export function JoinUsForm() {
             value={formData.contact}
             onChange={handleChange}
             required
+            className='bg-neutral-800 text-white border border-neutral-600 focus:ring-2 focus:ring-blue-500'
           />
         </LabelInputContainer>
 
         <LabelInputContainer>
-          <Label htmlFor='branch'>Branch</Label>
-          <Input
+          <Label htmlFor='branch' className='text-neutral-300'>
+            Branch
+          </Label>
+          <select
             id='branch'
             name='branch'
-            placeholder='Engineering / Science'
-            type='text'
             value={formData.branch}
             onChange={handleChange}
             required
-          />
+            className='bg-neutral-800 text-white border border-neutral-600 focus:ring-2 focus:ring-blue-500 rounded-md p-2'
+          >
+            <option value='' disabled>
+              Select your branch
+            </option>
+            <option value='BCA'>BCA</option>
+            <option value='MCA'>MCA</option>
+            <option value='MSc'>MSc</option>
+            <option value='BSc'>BSc</option>
+            <option value='BTech'>BTech</option>
+          </select>
         </LabelInputContainer>
 
         <LabelInputContainer>
-          <Label htmlFor='idcard'>Upload ID Card</Label>
+          <Label htmlFor='idcard' className='text-neutral-300'>
+            Upload ID Card
+          </Label>
           <Input
             id='idcard'
             name='idcard'
             type='file'
             accept='image/*,application/pdf'
+            className='bg-neutral-800 text-white border border-neutral-600 focus:ring-2 focus:ring-blue-500 file:text-white file:bg-neutral-700 file:border-none file:px-4 file:py-2 file:rounded-md file:-mt-6 file:-ml-4'
             // onChange={handleFileChange}
           />
         </LabelInputContainer>
 
         <button
-          className='bg-gradient-to-br relative group/btn from-black to-neutral-600 block w-full text-white rounded-md h-10 font-medium'
+          className='bg-blue-600 hover:bg-blue-500 transition-all duration-200 ease-in-out w-full text-white rounded-md h-10 font-semibold shadow-lg'
           type='submit'
         >
           Submit &rarr;
@@ -122,17 +146,20 @@ export function JoinUsForm() {
       </form>
 
       {message && (
-        <div className='flex items-center justify-center mt-4 text-green-500'>
+        <div className='flex items-center justify-center mt-4 text-green-400'>
           <FaCheckCircle className='mr-2' /> {message}
         </div>
       )}
 
       {showQR && (
         <div className='flex flex-col items-center mt-4'>
-          <p className='text-neutral-800 dark:text-neutral-200'>
-            Scan this QR Code:
-          </p>
-          <QRCode value={JSON.stringify(formData)} size={150} />
+          <p className='text-neutral-300'>Scan this QR Code:</p>
+          <QRCode
+            value={JSON.stringify(formData)}
+            size={150}
+            bgColor='#111'
+            fgColor='#FFF'
+          />
         </div>
       )}
     </div>

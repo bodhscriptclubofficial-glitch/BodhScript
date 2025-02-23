@@ -44,12 +44,12 @@ export function BackgroundBeamsComp() {
         {/* QR Code and Button Section (Button Above QR Code) */}
         <div className='flex flex-col items-center justify-center space-y-4 mt-10'>
           {/* Join Us Button */}
-          <button
+          {/* <button
             onClick={() => router.push('/join-us')}
             className='relative flex items-center justify-center px-8 py-2 text-lg font-semibold text-white border-2 border-cyan-400 rounded-full transition-all duration-300 bg-transparent hover:bg-cyan-400 hover:text-neutral-950 hover:shadow-[0_0_20px_rgba(0,255,255,0.8)] hover:scale-105 focus:outline-none focus:ring-4 focus:ring-cyan-500 cursor-pointer -mt-4 mb-4'
           >
             Join Us
-          </button>
+          </button> */}
 
           {/* QR Code */}
           <div className='relative w-48 h-48 p-2 bg-neutral-800 rounded-lg shadow-lg border border-cyan-400 '>
