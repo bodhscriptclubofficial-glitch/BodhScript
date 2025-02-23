@@ -126,16 +126,6 @@ const achievements = [
     description: 'Reached a milestone of 10+ active developers.',
     year: '2025',
   },
-  {
-    title: 'Upcoming Hackathons',
-    description: 'Organizing multiple successful coding hackathons.',
-    year: '2025',
-  },
-  {
-    title: 'Open-Source Contributions',
-    description: 'Contributions to various open-source projects globally.',
-    year: '2025',
-  },
 ]
 
 const Achievements = () => {
