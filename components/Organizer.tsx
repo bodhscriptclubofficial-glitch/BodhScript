@@ -45,7 +45,7 @@ export function Organizer() {
     <div className='relative min-h-screen py-12 px-4 w-full'>
       <div className='m-10 text-center '>
         <h2 className='text-4xl md:text-6xl font-extrabold text-cyber-blue drop-shadow-lg mb-6'>
-          Organizer
+          Organizers
         </h2>
       </div>
       <div className='h-[35rem] w-full overflow-y-auto p-6 bg-opacity-80 rounded-lg '>

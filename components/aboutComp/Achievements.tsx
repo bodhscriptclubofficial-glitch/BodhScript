@@ -116,24 +116,24 @@ import { motion } from 'framer-motion'
 
 const achievements = [
   {
-    title: 'Founded in 2023',
+    title: 'Founded in 2025',
     description:
       'BodhScript Club was established to bring developers together.',
-    year: '2023',
+    year: '2025',
   },
   {
-    title: '100+ Members',
-    description: 'Reached a milestone of 100+ active developers.',
-    year: '2024',
+    title: '10+ Members',
+    description: 'Reached a milestone of 10+ active developers.',
+    year: '2025',
   },
   {
-    title: 'Hosted 5 Hackathons',
-    description: 'Organized multiple successful coding hackathons.',
-    year: '2024',
+    title: 'Upcoming Hackathons',
+    description: 'Organizing multiple successful coding hackathons.',
+    year: '2025',
   },
   {
     title: 'Open-Source Contributions',
-    description: 'Contributed to various open-source projects globally.',
+    description: 'Contributions to various open-source projects globally.',
     year: '2025',
   },
 ]
