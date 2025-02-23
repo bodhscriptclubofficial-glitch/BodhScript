@@ -65,6 +65,7 @@ export function SparklesComp() {
         <TeamCard name='Subhadeep Dey' image='/images/team/Subhadeep.jpg' />
         <TeamCard name='Ashish' image='/images/team/Ashish.jpg' />
         <TeamCard name='Anshika' image='/images/team/Anshika.jpg' />
+        <TeamCard name='Dheeraj Bandral' image='/images/team/Dheeraj.jpg' />
       </div>
     </>
   )
