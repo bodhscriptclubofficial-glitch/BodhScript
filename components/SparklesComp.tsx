@@ -8,7 +8,7 @@ import { TeamCard } from './TeamCard'
 export function SparklesComp() {
   return (
     <>
-      <div className='h-[40rem] w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md'>
+      <div className='h-[50rem] w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md'>
         {/* Typewriter Effect */}
         <TypewriterEffect
           words={[
@@ -54,7 +54,9 @@ export function SparklesComp() {
           <div className='absolute inset-0 w-full h-full bg-black [mask-image:radial-gradient(350px_200px_at_top,transparent_20%,white)]'></div>
         </div>
       </div>
-      <div className='flex items-center flex-wrap justify-around m-10 gap-10'>
+
+      {/* Team Cards with Grid Layout */}
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-[1200px] mx-auto my-10'>
         <TeamCard name='Divya' image='/images/team/Divya.png' />
         <TeamCard name='Harsh Yadav' image='/images/team/Harsh.jpg' />
         <TeamCard name='Manish Mahto' image='/images/team/Manish.jpg' />

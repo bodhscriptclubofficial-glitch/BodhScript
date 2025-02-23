@@ -41,13 +41,12 @@ export const StickyScroll = ({
 
   const backgroundColors = [
     'var(--black)',
-    'var(--slate-900)',
+    'var(--black-700)',
     'var(--neutral-900)',
   ]
   const linearGradients = [
     'linear-gradient(to bottom right, var(--cyan-500), var(--emerald-500))',
     'linear-gradient(to bottom right, var(--pink-500), var(--indigo-500))',
-    // 'linear-gradient(to bottom right, var(--orange-500), var(--yellow-500))',
   ]
 
   const [backgroundGradient, setBackgroundGradient] = useState(
@@ -66,8 +65,7 @@ export const StickyScroll = ({
       className='h-[30rem] overflow-y-auto flex flex-col lg:flex-row  relative rounded-md p-10'
       ref={ref}
     >
-      {/* Left Side: Full-width on small screens */}
-      <div className='w-full lg:w-2/3 ml-20'>
+      <div className='w-full lg:w-2/3 ml-10 mr-24'>
         {content.map((item, index) => (
           <div key={item.title + index} className='my-20'>
             <motion.h2
@@ -96,9 +94,7 @@ export const StickyScroll = ({
         <div className='h-40' />
       </div>
 
-      {/* Right Side: Visible only on large screens */}
       <div
-        // style={{ background: backgroundGradient }}
         className={cn(
           'hidden lg:flex lg:w-1/3 h-80 rounded-md sticky top-10 overflow-hidden justify-center items-center',
           contentClassName

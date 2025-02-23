@@ -5,8 +5,7 @@ export default function MembersPage() {
   return (
     <>
       {' '}
-      <SparklesComp />
-     
+      <SparklesComp />   
     </>
   )
 }

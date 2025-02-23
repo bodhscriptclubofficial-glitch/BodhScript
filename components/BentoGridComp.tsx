@@ -6,7 +6,7 @@ export function BentoGridComp() {
     <div className='max-w-6xl mx-auto px-4 mt-10'>
       {/* Heading */}
       <h2
-        className='text-4xl md:text-5xl font-bold text-cyber-blue text-center   mb-10'
+        className='text-4xl md:text-6xl font-extrabold text-cyber-pink drop-shadow-lg mb-10 text-center'
         data-text='Gallery'
       >
         Gallery

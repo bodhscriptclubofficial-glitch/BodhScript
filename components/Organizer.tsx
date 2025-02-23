@@ -16,14 +16,14 @@ const content = [
           width={500}
           height={500}
           className='w-full h-full object-contain transition-opacity duration-500'
-          alt='Real-time Changes'
+          alt='Dr. Anand Kumar Shukla'
         />
       </div>
     ),
   },
   {
     title: 'Girish Kumar',
-    subtitle: 'Asst.Professor & Organizer',
+    subtitle: 'Asst. Professor & Organizer',
     description:
       'Girish Kumar holds a B.Sc. (Computer Science) Degree and PGDCA, MIT from GNDU and is a Research Scholar currently working as an Assistant Professor at Lovely Professional University. He has more than 23 years of teaching experience. He has four patents to his credit and has published more than 40 research papers in different national as well as international conferences and journals. He has authored four books published by reputed national and international publishers. He is also a Certified Academic Associate by IBM for DB2. He is an active member of IAENG- International Association of Engineers',
     content: (
@@ -33,7 +33,7 @@ const content = [
           width={500}
           height={500}
           className='w-full h-full object-contain transition-opacity duration-500'
-          alt='Version Control'
+          alt='Girish Kumar'
         />
       </div>
     ),
@@ -42,15 +42,17 @@ const content = [
 
 export function Organizer() {
   return (
-    <>
-      <div className='m-10 text-center'>
-        <h2 className='text-4xl md:text-6xl font-bold mb-6 text-cyber-blue'>
+    <div className='relative min-h-screen py-12 px-4 w-full'>
+      <div className='m-10 text-center '>
+        <h2 className='text-4xl md:text-6xl font-extrabold text-cyber-blue drop-shadow-lg mb-6'>
           Organizer
         </h2>
       </div>
-      <div className='h-[30rem] w-full overflow-y-auto'>
-        <StickyScroll content={content} />
+      <div className='h-[35rem] w-full overflow-y-auto p-6 bg-opacity-80 rounded-lg '>
+        <div className=' min-w-96 max-w-fit flex justify-center items-center mx-auto border-2 border-gray-600 shadow-lg shadow-gray-700'>
+          <StickyScroll content={content} />
+        </div>
       </div>
-    </>
+    </div>
   )
 }
