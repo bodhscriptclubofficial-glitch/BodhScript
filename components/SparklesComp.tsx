@@ -66,7 +66,7 @@ export function SparklesComp() {
       {/* Team Cards with Grid Layout */}
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-[1200px] mx-auto my-10'>
         <TeamCard
-          name='Shubham Rajput'
+          name='Shubham Arman'
           role='President'
           image='/images/members/Shubham.png'
           className='text-white font-semibold drop-shadow-md '
