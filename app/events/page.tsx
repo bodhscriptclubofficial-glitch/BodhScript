@@ -8,6 +8,7 @@ export default function EventsPage() {
     <>
       {/* Features Component */}
       <div className='mt-4 w-full px-4'>
+        
         <Features />
         <Organizer />
       </div>

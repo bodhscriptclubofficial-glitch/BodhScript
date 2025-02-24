@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, Suspense, lazy } from 'react'
 import { Spotlight } from '@/components/ui/spotlight'
-
+import Link from 'next/link'
 // Import Spline component
 const Spline = lazy(() => import('@splinetool/react-spline'))
 
@@ -60,6 +60,15 @@ function SplineScene({ scene, className }: any) {
 export default function HeroSection() {
   return (
     <div className='w-full h-screen bg-black/[0.96] relative overflow-hidden mb-8'>
+      {/* Fixed Logo outside navbar */}
+      <Link href='/' className='fixed top-4 left-4 z-[6000]'>
+        <img
+          src='/images/logo.jpg'
+          alt='Logo'
+          className='h-40 w-36 rounded-full object-cover shadow-lg'
+        />
+      </Link>
+
       {/* Spotlight effect */}
       <Spotlight
         className='-top-40 left-0 md:left-60 md:-top-20'

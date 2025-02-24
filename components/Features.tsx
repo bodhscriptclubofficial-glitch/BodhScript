@@ -33,10 +33,17 @@ export default function Features() {
 
   return (
     <section id='features' className='py-20 relative overflow-hidden mb-4'>
+      <Link href='/' className='fixed top-4 left-4 z-[6000]'>
+        <img
+          src='/images/logo.jpg'
+          alt='Logo'
+          className='h-40 w-36 rounded-full object-cover shadow-lg'
+        />
+      </Link>
       <div className='mx-auto px-4 text-center relative z-10'>
         {/* Heading */}
         <h2
-          className='text-4xl md:text-6xl font-bold mb-6 text-cyber-blue cyber-glitch'
+          className='text-4xl md:text-6xl font-bold mb-6 text-cyber-blue '
           data-text='Upcoming Events'
         >
           Upcoming
@@ -51,12 +58,12 @@ export default function Features() {
         </Link>
 
         {/* Feature Cards - Centered Grid */}
-        <div className='flex justify-center w-full mt-12'>
-          <div className='grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl ml-[38%]'>
+        <div className='flex justify-center items-center w-full mt-12'>
+          <div className='grid grid-cols-1 gap-8 max-w-[700px] mx-auto'>
             {features.map((feature, index) => (
               <div
                 key={index}
-                className='bg-cyber-black p-8 rounded-lg border border-gray-600 shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-cyber-blue/50 flex justify-center items-center h-80 w-96'
+                className='bg-cyber-black p-8 rounded-lg border border-gray-600 shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-cyber-blue/50 flex justify-center items-center h-[550px] w-[700px] mx-auto'
               >
                 {/* Image Container */}
                 <div className='relative w-full h-full flex items-center justify-center'>

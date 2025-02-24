@@ -53,40 +53,52 @@ export const FloatingNav = ({
           className
         )}
       >
-        {navItems.length > 0 ? (
-          navItems.map((navItem, idx) => {
-            const isActive = pathname === navItem.link
+        {/* Logo */}
+        {/* <Link href='/'>
+          <img
+            src='/images/logo.jpg'
+            alt='Logo'
+            className='h-10 w-10 rounded-full object-cover mr-4'
+          />
+        </Link> */}
 
-            return (
-              <Link
-                key={`link-${idx}`}
-                href={navItem.link}
-                className={cn(
-                  'relative dark:text-neutral-50 text-neutral-400 flex items-center space-x-2 text-base transition-colors duration-200 group hover:text-cyber-blue',
-                  isActive ? 'text-cyber-blue font-semibold' : ''
-                )}
-              >
-                <span className={cn(isActive ? 'text-cyber-blue' : '')}>
-                  {navItem.icon}
-                </span>
-                <span
+        {/* Navigation Links */}
+        <div className='flex items-center space-x-6'>
+          {navItems.length > 0 ? (
+            navItems.map((navItem, idx) => {
+              const isActive = pathname === navItem.link
+
+              return (
+                <Link
+                  key={`link-${idx}`}
+                  href={navItem.link}
                   className={cn(
-                    'relative after:content-[""] after:absolute after:left-0 after:bottom-[-2px] after:w-0 after:h-[2px] after:bg-cyan-400 after:transition-all after:duration-300 after:group-hover:w-full after:shadow-[0_0_8px_cyan] hover:text-cyber-blue',
-                    isActive ? 'after:w-full text-cyber-blue' : ''
+                    'relative dark:text-neutral-50 text-neutral-400 flex items-center space-x-2 text-base transition-colors duration-200 group hover:text-cyber-blue',
+                    isActive ? 'text-cyber-blue font-semibold' : ''
                   )}
                 >
-                  {navItem.name}
-                </span>
-              </Link>
-            )
-          })
-        ) : (
-          <p className='text-neutral-500 text-sm'>
-            No navigation items available
-          </p>
-        )}
+                  <span className={cn(isActive ? 'text-cyber-blue' : '')}>
+                    {navItem.icon}
+                  </span>
+                  <span
+                    className={cn(
+                      'relative after:content-[""] after:absolute after:left-0 after:bottom-[-2px] after:w-0 after:h-[2px] after:bg-cyan-400 after:transition-all after:duration-300 after:group-hover:w-full after:shadow-[0_0_8px_cyan] hover:text-cyber-blue',
+                      isActive ? 'after:w-full text-cyber-blue' : ''
+                    )}
+                  >
+                    {navItem.name}
+                  </span>
+                </Link>
+              )
+            })
+          ) : (
+            <p className='text-neutral-500 text-sm'>
+              No navigation items available
+            </p>
+          )}
+        </div>
 
-        {/* Link to Join Us Page */}
+        {/* Join Us Button */}
         <Link href='/join-us'>
           <button className='border text-sm font-medium border-neutral-200 dark:border-white/[0.2] text-white hover:text-cyber-blue dark:text-white px-4 py-2 rounded-full hover:shadow-[0_0_10px_rgba(0,255,255,0.8)] transition-shadow duration-300'>
             <span>Join us</span>

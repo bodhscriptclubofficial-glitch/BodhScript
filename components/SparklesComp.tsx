@@ -4,11 +4,19 @@ import { SparklesCore } from '@/components/ui/sparkles'
 import { TypewriterEffect } from './ui/typewriter-effect'
 import { motion } from 'framer-motion'
 import { TeamCard } from './TeamCard'
+import Link from 'next/link'
 
 export function SparklesComp() {
   return (
     <>
       <div className='h-[50rem] w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md'>
+        <Link href='/' className='fixed top-4 left-4 z-[6000]'>
+          <img
+            src='/images/logo.jpg'
+            alt='Logo'
+            className='h-40 w-36 rounded-full object-cover shadow-lg'
+          />
+        </Link>
         {/* Typewriter Effect */}
         <TypewriterEffect
           words={[
@@ -57,15 +65,66 @@ export function SparklesComp() {
 
       {/* Team Cards with Grid Layout */}
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-[1200px] mx-auto my-10'>
-        <TeamCard name='Divya' image='/images/team/Divya.png' />
-        <TeamCard name='Harsh Yadav' image='/images/team/Harsh.jpg' />
-        <TeamCard name='Manish Mahto' image='/images/team/Manish.jpg' />
-        <TeamCard name='Nilotpal Das' image='/images/team/Nilotpal.jpg' />
-        <TeamCard name='Piyush' image='/images/team/Piyush.jpg' />
-        <TeamCard name='Subhadeep Dey' image='/images/team/Subhadeep.jpg' />
-        <TeamCard name='Ashish' image='/images/team/Ashish.jpg' />
-        <TeamCard name='Anshika' image='/images/team/Anshika.jpg' />
-        <TeamCard name='Dheeraj Bandral' image='/images/team/Dheeraj.jpg' />
+        <TeamCard
+          name='Divya'
+          role='Event Coordinator'
+          image='/images/members/Divya.jpg'
+          className='text-white font-semibold drop-shadow-md'
+        />
+        <TeamCard
+          name='Harsh Yadav'
+          role='Event Coordinator'
+          image='/images/members/Harsh.png'
+          className='text-white font-semibold drop-shadow-md'
+        />
+        <TeamCard
+          name='Manish Mahto'
+          role='Event Coordinator'
+          image='/images/members/Manish.png'
+          className='text-white font-semibold drop-shadow-md'
+        />
+        <TeamCard
+          name='Nilotpal Das'
+          role='Anchor'
+          image='/images/members/Nilotpal.png'
+          className='text-white font-semibold drop-shadow-md'
+        />
+        <TeamCard
+          name='Piyush Napit'
+          role='Chief Secretary'
+          image='/images/members/Piyush.png'
+          className='text-white font-semibold drop-shadow-md'
+        />
+        <TeamCard
+          name='Subhadeep Dey'
+          role='Event Coordinator'
+          image='/images/members/Subhadeep.png'
+          className='text-white font-semibold drop-shadow-md'
+        />
+        <TeamCard
+          name='Ashish Kumar'
+          role='Secretary'
+          image='/images/members/Ashish.png'
+          className='text-white font-semibold drop-shadow-md'
+        />
+        <TeamCard
+          name='Anshika Yadav'
+          role='Anchor'
+          image='/images/members/Anshika.png'
+          className='text-white font-semibold drop-shadow-md'
+        />
+        <TeamCard
+          name='Dheeraj Bandral'
+          role='Content Writer'
+          image='/images/members/Dheeraj.png'
+          className='text-white font-semibold drop-shadow-md'
+        />
+        <TeamCard
+          name='Shubham Rajput'
+          role='President'
+          image='/images/members/Shubham.png'
+          className='text-white font-semibold drop-shadow-md '
+        />
       </div>
     </>
   )
