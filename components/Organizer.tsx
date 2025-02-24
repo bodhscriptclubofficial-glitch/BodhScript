@@ -5,8 +5,8 @@ import Image from 'next/image'
 
 const content = [
   {
-    title: 'Dr. Anand Kumar Shukla',
-    subtitle: 'Head of School (HOS) Dean',
+    title: 'Prof.(Dr.) Anand Kumar Shukla',
+    subtitle: 'Dean and HOS-SCA',
     description:
       'The School of Computer Applications is dedicated to fostering excellence in the education of young minds, equipping them with the skills necessary to devise innovative, technology-driven solutions for societal, industrial, and global challenges. Our industry-oriented curricula are designed to be innovative, incorporating rich pedagogical initiatives such as Bring Your Own Device (BYOD) programs, capstone projects, case studies, and courses taught by industry experts. These initiatives empower students to evolve into the problem-solvers of tomorrow. With various pathways available, from application and product development to advanced studies, we prepare our students to excel as corporate professionals and entrepreneurs',
     content: (
