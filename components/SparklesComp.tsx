@@ -66,6 +66,36 @@ export function SparklesComp() {
       {/* Team Cards with Grid Layout */}
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-[1200px] mx-auto my-10'>
         <TeamCard
+          name='Shubham Rajput'
+          role='President'
+          image='/images/members/Shubham.png'
+          className='text-white font-semibold drop-shadow-md '
+        />{' '}
+        <TeamCard
+          name='Ashish Kumar'
+          role='Secretary'
+          image='/images/members/Ashish.png'
+          className='text-white font-semibold drop-shadow-md'
+        />{' '}
+        <TeamCard
+          name='Piyush Napit'
+          role=' Secretary'
+          image='/images/members/Piyush.png'
+          className='text-white font-semibold drop-shadow-md'
+        />{' '}
+        <TeamCard
+          name='Nilotpal Das'
+          role='Anchor'
+          image='/images/members/Nilotpal.png'
+          className='text-white font-semibold drop-shadow-md'
+        />{' '}
+        <TeamCard
+          name='Anshika Yadav'
+          role='Anchor'
+          image='/images/members/Anshika.png'
+          className='text-white font-semibold drop-shadow-md'
+        />
+        <TeamCard
           name='Divya'
           role='Event Coordinator'
           image='/images/members/Divya.jpg'
@@ -84,33 +114,9 @@ export function SparklesComp() {
           className='text-white font-semibold drop-shadow-md'
         />
         <TeamCard
-          name='Nilotpal Das'
-          role='Anchor'
-          image='/images/members/Nilotpal.png'
-          className='text-white font-semibold drop-shadow-md'
-        />
-        <TeamCard
-          name='Piyush Napit'
-          role='Chief Secretary'
-          image='/images/members/Piyush.png'
-          className='text-white font-semibold drop-shadow-md'
-        />
-        <TeamCard
           name='Subhadeep Dey'
           role='Event Coordinator'
           image='/images/members/Subhadeep.png'
-          className='text-white font-semibold drop-shadow-md'
-        />
-        <TeamCard
-          name='Ashish Kumar'
-          role='Secretary'
-          image='/images/members/Ashish.png'
-          className='text-white font-semibold drop-shadow-md'
-        />
-        <TeamCard
-          name='Anshika Yadav'
-          role='Anchor'
-          image='/images/members/Anshika.png'
           className='text-white font-semibold drop-shadow-md'
         />
         <TeamCard
@@ -118,12 +124,6 @@ export function SparklesComp() {
           role='Content Writer'
           image='/images/members/Dheeraj.png'
           className='text-white font-semibold drop-shadow-md'
-        />
-        <TeamCard
-          name='Shubham Rajput'
-          role='President'
-          image='/images/members/Shubham.png'
-          className='text-white font-semibold drop-shadow-md '
         />
       </div>
     </>
