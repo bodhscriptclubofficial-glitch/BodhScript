@@ -51,11 +51,11 @@ export default function Features() {
         </h2>
 
         {/* CTA Button */}
-        <Link href='/events'>
+        {/* <Link href='/events'>
           <span className='bg-cyber-pink text-white px-6 py-3 rounded-full font-semibold hover:bg-cyber-blue hover:text-cyber-black transition duration-300 animate-strong-pulse mt-8 inline-block cursor-pointer'>
             Check Events
           </span>
-        </Link>
+        </Link> */}
 
         {/* Feature Cards - Centered Grid */}
         <div className='flex justify-center items-center w-full mt-12'>
