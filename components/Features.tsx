@@ -9,7 +9,7 @@ interface Feature {
 
 const features: Feature[] = [
   {
-    image: '/images/codeq2.jpg',
+    image: '/images/codequest.jpg',
   },
 ]
 
@@ -57,7 +57,7 @@ export default function Features() {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className='bg-cyber-black p-8 rounded-lg border border-gray-600 shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-cyber-blue/50 flex justify-center items-center h-[550px] w-[700px] mx-auto'
+                className='bg-cyber-black p-6 rounded-lg border border-gray-600 shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-cyber-blue/50 flex justify-center items-center h-[550px] w-[700px]'
               >
                 {/* Image container */}
                 <div className='relative w-full h-full flex items-center justify-center'>
