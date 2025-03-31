@@ -13,6 +13,12 @@ const achievements = [
     description: 'Reached a milestone of 10+ active developers.',
     year: '2025',
   },
+  {
+    title: 'CodeQuest',
+    description:
+      'Successfully completed the first coding event with 100+ participants',
+    year: '2025',
+  },
 ]
 
 const Achievements = () => {

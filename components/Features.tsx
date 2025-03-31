@@ -40,17 +40,19 @@ export default function Features() {
           className='h-40 w-36 rounded-full object-cover shadow-lg'
         />
       </Link>
+      {/* 
       <div className='mx-auto px-4 text-center relative z-10'>
-        {/* Heading */}
+        // Heading 
         <h2
-          className='text-4xl md:text-6xl font-bold mb-6 text-cyber-blue '
+          className='text-4xl md:text-6xl font-extrabold  text-cyber-blue '
           data-text='Upcoming Events'
         >
-          Upcoming
-          <span className='text-cyber-pink pl-4'>Events</span>
+          Event
+          <span className='text-cyber-pink pl-4'>Spotlights</span>
         </h2>
-
-        {/* Feature Cards - Centered Grid */}
+      </div>
+   
+        // Feature Cards - Centered Grid 
 
         <div className='flex justify-center items-center w-full mt-12 pt-10'>
           <div className='grid grid-cols-1 gap-8 max-w-[700px] mx-auto'>
@@ -59,7 +61,7 @@ export default function Features() {
                 key={index}
                 className='bg-cyber-black p-6 rounded-lg border border-gray-600 shadow-lg transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-cyber-blue/50 flex justify-center items-center h-[550px] w-[700px]'
               >
-                {/* Image container */}
+                // Image container 
                 <div className='relative w-full h-full flex items-center justify-center'>
                   <img
                     src={feature.image}
@@ -72,6 +74,7 @@ export default function Features() {
           </div>
         </div>
       </div>
+    */}
 
       {/* Black Grid Background */}
       <div className='absolute inset-0 cyber-grid'></div>
