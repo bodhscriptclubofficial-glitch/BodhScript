@@ -228,9 +228,9 @@ const eventItems = [
         <div className='absolute inset-0 bg-gradient-to-t from-indigo-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6'>
           <div className='transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500'>
             <span className='inline-block px-3 py-1 bg-green-500/80 text-black text-xs font-bold rounded-full mb-2'>
-              AWARDS
+              HIGHLIGHT
             </span>
-            <h4 className='text-white text-lg font-bold'>Celebration</h4>
+            <h4 className='text-white text-lg font-bold'>Round 1</h4>
           </div>
         </div>
       </div>
