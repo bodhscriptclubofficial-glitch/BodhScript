@@ -1,7 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import { BentoGrid, BentoGridItem } from './ui/bento-grid'
 
 export function EventSpotlight() {
+
+    const [currentIndex, setCurrentIndex] = React.useState(0); // For Use Of 3dMarquee
+
+  React.useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrentIndex((prev) => (prev + 1) % eventItems.length);
+  }, 3000); // change slide every 3 seconds
+  return () => clearInterval(interval);
+}, []);      // Function For Use Of 3dMarquee
+
   return (
     <div className='max-w-7xl mx-auto px-4 mt-10'>
       {/* Event Info Section */}
@@ -107,7 +117,7 @@ export function EventSpotlight() {
         </div>
       </div>
 
-      {/* Enhanced Bento Grid Section */}
+      {/* Enhanced Marquee Section */}
       <div className='mt-20 mb-8 text-center'>
         <h3 className='text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-indigo-500 inline-block'>
           Event Gallery
@@ -115,30 +125,30 @@ export function EventSpotlight() {
         <div className='w-24 h-1 bg-gradient-to-r from-cyan-500 to-indigo-500 mx-auto mt-2 rounded-full'></div>
       </div>
 
-      <div className='relative mb-20'>
-        {/* Background decorative elements for grid section */}
+      <div className='relative mb-20 h-[28rem] md:h-[32rem]'>
+        {/* Background decorative elements for Marquee section */}
         <div className='absolute inset-0 w-full h-full -z-10 opacity-5'>
           <div className='absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-indigo-500 blur-3xl'></div>
           <div className='absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-cyan-500 blur-3xl'></div>
         </div>
 
-        <BentoGrid className='grid grid-cols-1 md:grid-cols-6 gap-6 md:auto-rows-[20rem] mt-8'>
-          {eventItems.map((item, i) => (
-            <BentoGridItem
-              key={i}
-              className={`${item.className} overflow-hidden bg-gradient-to-br from-gray-900/90 to-indigo-900/80 backdrop-blur-sm rounded-3xl border border-indigo-500/20 hover:border-indigo-400/40 shadow-lg hover:shadow-xl hover:shadow-indigo-500/10 transition-all duration-300`}
-              header={item.header}
-              title={
-                <span className='text-lg font-bold text-cyan-300'>
-                  {item.title}
-                </span>
-              }
-              description={
-                <span className='text-gray-300'>{item.description}</span>
-              }
-            />
-          ))}
-        </BentoGrid>
+        {eventItems.map((item, i) => {
+          const isActive = i === currentIndex; // show only the active slide
+           return (
+                <div
+                  key={i}
+                  className={`absolute top-0 left-0 w-full h-full transition-opacity duration-1000 ${
+                    isActive ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                  }`}
+                >
+                  {item.header}
+                  <div className="absolute bottom-0 w-full p-4 bg-gray-900/80">
+                    <h3 className="text-cyan-300 font-bold">{item.title}</h3>
+                    <p className="text-gray-300 text-sm">{item.description}</p>
+                  </div>
+                </div>
+                   );
+                  })}
 
         <div className='text-center mt-10'>
           <button className='px-6 py-3 bg-indigo-900/70 text-cyan-300 rounded-lg border border-indigo-500/30 hover:bg-indigo-800/70 transition-all duration-300 shadow-lg hover:shadow-indigo-500/20 mt-12'>
