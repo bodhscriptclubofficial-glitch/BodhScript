@@ -98,25 +98,6 @@ const faculties = [
     tagline: 'AI and Machine Learning are shaping the future of innovation.',
   },
   {
-    image: '/images/faculties/MrAjay.jpg',
-    name: 'Mr. Ajay Kumar Bansal',
-    designation: 'Assistant Professor',
-    tagline: 'Problem-solving and coding open the door to endless creativity.',
-  },
-  {
-    image: '/images/faculties/DrSartaj.jpg',
-    name: 'Dr. Sartaj Singh',
-    designation: 'Head of Data Sciences & Data Analytics',
-    tagline:
-      'Data is the oil of the 21st century, and analytics is its engine.',
-  },
-  {
-    image: '/images/faculties/DrGurpreet.jpeg',
-    name: 'Dr. Gurpreet Singh Bhatia',
-    designation: 'Head of COD, Mathematics',
-    tagline: 'Mathematics is the language in which the universe is written.',
-  },
-  {
     image: '/images/faculties/DrBalraj.jpg',
     name: 'Dr. Balraj Kumar',
     designation: 'Associate Professor & Asst. Dean',
@@ -127,5 +108,24 @@ const faculties = [
     name: 'Dr. Pawan Kumar',
     designation: 'Associate Professor & Dy.Dean',
     tagline: 'True leadership inspires minds to think beyond limits.',
+  },
+  {
+    image: '/images/faculties/DrSartaj.jpg',
+    name: 'Dr. Sartaj Singh',
+    designation: 'Head of Data Sciences & Data Analytics',
+    tagline:
+      'Data is the oil of the 21st century, and analytics is its engine.',
+  },
+  {
+    image: '/images/faculties/MrAjay.jpg',
+    name: 'Mr. Ajay Kumar Bansal',
+    designation: 'Assistant Professor',
+    tagline: 'Problem-solving and coding open the door to endless creativity.',
+  },
+  {
+    image: '/images/faculties/DrGurpreet.jpeg',
+    name: 'Dr. Gurpreet Singh Bhatia',
+    designation: 'Head of COD, Mathematics',
+    tagline: 'Mathematics is the language in which the universe is written.',
   },
 ]
