@@ -126,7 +126,6 @@ const faculties = [
     image: '/images/faculties/DrPawan.jpg',
     name: 'Dr. Pawan Kumar',
     designation: 'Associate Professor & Dy.Dean',
-    tagline:
-      'Leadership in education lies not in authority, but in inspiring minds to think beyond limits.',
+    tagline: 'True leadership inspires minds to think beyond limits.',
   },
 ]
