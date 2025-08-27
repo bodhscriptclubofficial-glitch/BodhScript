@@ -116,6 +116,36 @@ export function EventSpotlight() {
           </button>
         </div>
       </div>
+       <div className='mt-20 mb-8 text-center'>
+        <h3 className='text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-indigo-500 inline-block'>
+          Upcoming Event
+        </h3>
+        <div className='w-24 h-1 bg-gradient-to-r from-cyan-500 to-indigo-500 mx-auto mt-2 rounded-full'></div>
+      </div>
+
+     <div className='relative mb-20 h-[28rem] md:h-[32rem]'>
+        {/* Background decorative elements for Marquee section */}
+        <div className='absolute inset-0 w-full h-full -z-10 opacity-5'>
+          <div className='absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-indigo-500 blur-3xl'></div>
+          <div className='absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-cyan-500 blur-3xl'></div>
+        </div>
+
+      <div className='relative h-full w-full overflow-hidden group'>
+        <img
+          src='/images/UpcomingEvent/UpcomingEventPic1.jpeg'
+          alt='CodeQuest Highlights'
+          className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-110'
+        />
+        <div className='absolute inset-0 bg-gradient-to-t from-indigo-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6'>
+          <div className='transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500'>
+            
+            <h4 className='text-white text-lg font-bold'></h4>
+          </div>
+        </div>
+      </div>
+
+        
+      </div>
 
       {/* Enhanced Marquee Section */}
       <div className='mt-20 mb-8 text-center'>
@@ -249,4 +279,210 @@ const eventItems = [
     description: 'Celebrating the winners of CodeQuest 2025!',
     className: 'md:col-span-6 md:h-[500px]',
   },
+  // Added More Events Pictures on 27/08/2025 by DEV: Diptimoy Datta
+
+  {
+    header: (
+      <div className='relative h-full w-full overflow-hidden group'>
+        <img
+          src='/images/codequest/PreviousEventPic1.jpeg'
+          alt='CodeQuest Winners'
+          className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-110'
+        />
+        <div className='absolute inset-0 bg-gradient-to-t from-indigo-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6'>
+          <div className='transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500'>
+            <span className='inline-block px-3 py-1 bg-green-500/80 text-black text-xs font-bold rounded-full mb-2'>
+              
+            </span>
+            <h4 className='text-white text-lg font-bold'></h4>
+          </div>
+        </div>
+      </div>
+    ),
+    title: 'CodeQuest Winners',
+    //description: 'Celebrating the winners of CodeQuest 2025!',
+    className: 'md:col-span-6 md:h-[500px]',
+  },
+  {
+    header: (
+      <div className='relative h-full w-full overflow-hidden group'>
+        <img
+          src='/images/codequest/PreviousEventPic2.jpeg'
+          alt='CodeQuest Winners'
+          className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-110'
+        />
+        <div className='absolute inset-0 bg-gradient-to-t from-indigo-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6'>
+          <div className='transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500'>
+            <span className='inline-block px-3 py-1 bg-green-500/80 text-black text-xs font-bold rounded-full mb-2'>
+              
+            </span>
+            <h4 className='text-white text-lg font-bold'></h4>
+          </div>
+        </div>
+      </div>
+    ),
+    title: 'CodeQuest Winners',
+    //description: 'Celebrating the winners of CodeQuest 2025!',
+    className: 'md:col-span-6 md:h-[500px]',
+  },
+  {
+    header: (
+      <div className='relative h-full w-full overflow-hidden group'>
+        <img
+          src='/images/codequest/PreviousEventPic3.jpeg'
+          alt='CodeQuest Winners'
+          className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-110'
+        />
+        <div className='absolute inset-0 bg-gradient-to-t from-indigo-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6'>
+          <div className='transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500'>
+            <span className='inline-block px-3 py-1 bg-green-500/80 text-black text-xs font-bold rounded-full mb-2'>
+              
+            </span>
+            <h4 className='text-white text-lg font-bold'></h4>
+          </div>
+        </div>
+      </div>
+    ),
+    title: 'CodeQuest Winners',
+    //description: 'Celebrating the winners of CodeQuest 2025!',
+    className: 'md:col-span-6 md:h-[500px]',
+  },
+{
+    header: (
+      <div className='relative h-full w-full overflow-hidden group'>
+        <img
+          src='/images/codequest/PreviousEventPic4.jpeg'
+          alt='CodeQuest Winners'
+          //className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-110'
+          className='w-full h-full object-contain transition-transform duration-700 group-hover:scale-110'
+
+        />
+        <div className='absolute inset-0 bg-gradient-to-t from-indigo-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6'>
+          <div className='transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500'>
+            <span className='inline-block px-3 py-1 bg-green-500/80 text-black text-xs font-bold rounded-full mb-2'>
+              
+            </span>
+            <h4 className='text-white text-lg font-bold'></h4>
+          </div>
+        </div>
+      </div>
+    ),
+    title: 'CodeQuest Winners',
+    //description: 'Celebrating the winners of CodeQuest 2025!',
+    className: 'md:col-span-6 md:h-[500px]',
+  },
+ {
+    header: (
+      <div className='relative h-full w-full overflow-hidden group'>
+        <img
+          src='/images/codequest/PreviousEventPic5.jpeg'
+          alt='CodeQuest Winners'
+          className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-110'
+        />
+        <div className='absolute inset-0 bg-gradient-to-t from-indigo-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6'>
+          <div className='transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500'>
+            <span className='inline-block px-3 py-1 bg-green-500/80 text-black text-xs font-bold rounded-full mb-2'>
+              
+            </span>
+            <h4 className='text-white text-lg font-bold'></h4>
+          </div>
+        </div>
+      </div>
+    ),
+    title: 'CodeQuest Winners',
+    //description: 'Celebrating the winners of CodeQuest 2025!',
+    className: 'md:col-span-6 md:h-[500px]',
+  },
+
+   {
+    header: (
+      <div className='relative h-full w-full overflow-hidden group'>
+        <img
+          src='/images/codequest/PreviousEventPic6.jpeg'
+          alt='CodeQuest Winners'
+          className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-110'
+        />
+        <div className='absolute inset-0 bg-gradient-to-t from-indigo-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6'>
+          <div className='transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500'>
+            <span className='inline-block px-3 py-1 bg-green-500/80 text-black text-xs font-bold rounded-full mb-2'>
+              
+            </span>
+            <h4 className='text-white text-lg font-bold'></h4>
+          </div>
+        </div>
+      </div>
+    ),
+    //title: 'CodeQuest Winners',
+    //description: 'Celebrating the winners of CodeQuest 2025!',
+    className: 'md:col-span-6 md:h-[500px]',
+  },
+
+  {
+    header: (
+      <div className='relative h-full w-full overflow-hidden group'>
+        <img
+          src='/images/codequest/PreviousEventPic7.jpeg'
+          alt='CodeQuest Winners'
+          className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-110'
+        />
+        <div className='absolute inset-0 bg-gradient-to-t from-indigo-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6'>
+          <div className='transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500'>
+            <span className='inline-block px-3 py-1 bg-green-500/80 text-black text-xs font-bold rounded-full mb-2'>
+              
+            </span>
+            <h4 className='text-white text-lg font-bold'></h4>
+          </div>
+        </div>
+      </div>
+    ),
+    //title: 'CodeQuest Winners',
+    //description: 'Celebrating the winners of CodeQuest 2025!',
+    className: 'md:col-span-6 md:h-[500px]',
+  },
+  {
+    header: (
+      <div className='relative h-full w-full overflow-hidden group'>
+        <img
+          src='/images/codequest/PreviousEventPic8.jpeg'
+          alt='CodeQuest Winners'
+          className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-110'
+        />
+        <div className='absolute inset-0 bg-gradient-to-t from-indigo-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6'>
+          <div className='transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500'>
+            <span className='inline-block px-3 py-1 bg-green-500/80 text-black text-xs font-bold rounded-full mb-2'>
+              
+            </span>
+            <h4 className='text-white text-lg font-bold'></h4>
+          </div>
+        </div>
+      </div>
+    ),
+    //title: 'CodeQuest Winners',
+    //description: 'Celebrating the winners of CodeQuest 2025!',
+    className: 'md:col-span-6 md:h-[500px]',
+  },
+  {
+    header: (
+      <div className='relative h-full w-full overflow-hidden group'>
+        <img
+          src='/images/codequest/PreviousEventPic9.jpeg'
+          alt='CodeQuest Winners'
+          className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-110'
+        />
+        <div className='absolute inset-0 bg-gradient-to-t from-indigo-900/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6'>
+          <div className='transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500'>
+            <span className='inline-block px-3 py-1 bg-green-500/80 text-black text-xs font-bold rounded-full mb-2'>
+              
+            </span>
+            <h4 className='text-white text-lg font-bold'></h4>
+          </div>
+        </div>
+      </div>
+    ),
+    //title: 'CodeQuest Winners',
+    //description: 'Celebrating the winners of CodeQuest 2025!',
+    className: 'md:col-span-6 md:h-[500px]',
+  },
 ]
+
+
