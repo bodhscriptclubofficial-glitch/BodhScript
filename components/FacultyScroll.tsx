@@ -119,7 +119,14 @@ const faculties = [
   {
     image: '/images/faculties/DrBalraj.jpg',
     name: 'Dr. Balraj Kumar',
-    designation: 'Senior Faculty, MCA',
+    designation: 'Associate Professor & Asst. Dean',
     tagline: 'Education is not about tools, it’s about transforming minds.',
+  },
+  {
+    image: '/images/faculties/DrPawan.jpg',
+    name: 'Dr. Pawan Kumar',
+    designation: 'Associate Professor & Dy.Dean',
+    tagline:
+      'Leadership in education lies not in authority, but in inspiring minds to think beyond limits.',
   },
 ]
