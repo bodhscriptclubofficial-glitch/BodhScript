@@ -12,7 +12,6 @@ export default function AboutPage() {
   return (
     <div className='mt-10'>
       <BgBeamsWithColl />
-      {/* <AboutClub /> */}
       <About />
       <WhatWeDo />
       <Vision />

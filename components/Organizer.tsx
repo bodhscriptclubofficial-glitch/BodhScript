@@ -12,7 +12,7 @@ const content = [
     content: (
       <div className='h-full w-full flex items-center justify-center text-white'>
         <Image
-          src='/images/members/DrAnandKumarShukla.jpg'
+          src='/images/members/DrAnand.jpg'
           width={500}
           height={500}
           className='w-full h-full object-contain transition-opacity duration-500'
@@ -29,7 +29,7 @@ const content = [
     content: (
       <div className='h-full w-full flex items-center justify-center text-white'>
         <Image
-          src='/images/members/Girish.jpg'
+          src='/images/members/DrGirish.jpg'
           width={500}
           height={500}
           className='w-full h-full object-contain transition-opacity duration-500'

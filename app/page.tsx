@@ -6,6 +6,7 @@ import Features from '@/components/Features'
 import { BentoGridComp } from '@/components/BentoGridComp'
 import { BackgroundBeamsComp } from '@/components/BackgroundBeamsComp'
 import { Organizer } from '@/components/Organizer'
+import { FacultyScroll } from '@/components/FacultyScroll'
 
 export default function Page() {
   const navItems = [
@@ -20,6 +21,7 @@ export default function Page() {
       <FloatingNav navItems={navItems} />
       <HeroSection />
       <BentoGridComp />
+      <FacultyScroll />
       <BackgroundBeamsComp />
     </div>
   )
