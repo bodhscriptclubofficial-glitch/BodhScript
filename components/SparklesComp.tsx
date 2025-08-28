@@ -96,6 +96,12 @@ export function SparklesComp() {
           className='text-white font-semibold drop-shadow-md'
         />
         <TeamCard
+          name='Khyati'
+          role='Anchor'
+          image='/images/members/Khyati .jpeg'
+          className='text-white font-semibold drop-shadow-md'
+        />
+        <TeamCard
           name='Divya'
           role='Event Coordinator'
           image='/images/members/Divya.jpg'
