@@ -36,7 +36,6 @@ export default function RootLayout({
         <div className='mt-4'>
           <FloatingNav />
         </div>
-        {/* <div className='cyber-lines'></div> */}
         {children}
         <Toaster />
       </body>
