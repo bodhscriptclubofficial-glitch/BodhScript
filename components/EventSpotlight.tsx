@@ -49,7 +49,7 @@ export function EnhancedCodeContestVideo({
   const [currentScene, setCurrentScene] = useState(0);
   const [isPlaying, setIsPlaying] = useState(autoPlay);
   const [progress, setProgress] = useState(0);
-  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+
 
   const scenes = [
     { id: 'lpu-intro', title: 'BodhScriptClub', subtitle: 'Presents', icon: Globe, background: 'from-blue-900 via-purple-900 to-indigo-900', vfx: 'university' },
@@ -62,13 +62,13 @@ export function EnhancedCodeContestVideo({
   ];
 
   // Safe window size handling
-  useEffect(() => {
-    const handleResize = () =>
-      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
+useEffect(() => {
+  const handleResize = () => setWindowSize({ width: window.innerWidth, height: window.innerHeight });
+  handleResize();
+  window.addEventListener("resize", handleResize);
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
 
   // Progress logic
   useEffect(() => {
@@ -211,21 +211,31 @@ export function EnhancedCodeContestVideo({
 
   const currentSceneData = scenes[currentScene];
 
+  // 3️⃣ Grab its icon
+  const Icon = currentSceneData.icon;
   return (
     <div className={`relative w-full h-full rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br ${currentSceneData.background}`}>
       {renderVFX(currentSceneData.vfx)}
 
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-        <currentSceneData.icon className="w-16 h-16 text-white mb-4" />
-        <h2 className="text-3xl md:text-5xl font-bold text-white mb-2">{currentSceneData.title}</h2>
-        <p className="text-lg md:text-2xl text-white/80">{currentSceneData.subtitle}</p>
+  <Icon className="w-16 h-16 text-white mb-4" />
+  <h2 className="text-3xl md:text-5xl font-bold text-white mb-2">
+    {currentSceneData.title}
+  </h2>
+  <p className="text-lg md:text-2xl text-white/80">
+    {currentSceneData.subtitle}
+  </p>
 
-        {currentSceneData.vfx === "qrcode" && (
-          <div className="mt-8">
-            <img src="/images/CodeClashQr.jpeg" className="h-80 w-auto mx-auto" />
-          </div>
-        )}
-      </div>
+  {currentSceneData.vfx === "qrcode" && (
+    <div className="mt-8">
+      <img
+        src="/images/CodeClashQr.jpg"
+        className="h-80 w-auto mx-auto"
+      />
+    </div>
+  )}
+</div>
+
 
       <div className="absolute bottom-4 left-4 right-4 h-2 bg-white/20 rounded-full">
         <div className="h-2 bg-cyan-400 rounded-full" style={{ width: `${progress}%` }} />
