@@ -2,244 +2,183 @@
 import React, { useRef,useEffect, useState } from 'react';
 import { BentoGrid, BentoGridItem } from './ui/bento-grid'
 import { motion } from 'motion/react';
-import { ConciseCodeContestBanner } from './CodeContest/ConciseCodeContestBanner';
-import { StaticCodeContestBanner } from './CodeContest/StaticCodeContestBanner';
-import { CodeContestVideo } from './CodeContest/CodeContestVideo';
-//import { EnhancedCodeContestVideo } from './CodeContest/EnhancedCodeContestVideo';
-import { SmallBannerExporter } from './CodeContest/SmallBannerExporter';
-import { ManualExportHelper } from './CodeContest/ManualExportHelper';
-import { 
-  Code, 
-  Trophy, 
-  Clock, 
-  Users, 
-  Zap, 
-  Target, 
-  Award, 
-  Rocket,
-  Coffee,
-  Monitor,
-  Keyboard,
-  Brain,
-  Star,
-  Timer,
-  Play,
-  Pause,
-  Sparkles,
-  Binary,
-  Cpu,
-  Database,
-  Globe,
-  Bolt,
-  Calendar
-} from 'lucide-react';
-import { QRCodeGenerator } from './CodeContest/QRCodeGenerator';
+import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
+import { Button } from "./CodeContest/ui/button";
+import { SlideTransition } from "./CodeContest/SlideTransition";
+import { Slide1 } from "./CodeContest/slides/Slide1";
+import { Slide2 } from "./CodeContest/slides/Slide2";
+import { Slide3 } from "./CodeContest/slides/Slide3";
+import { Slide4 } from "./CodeContest/slides/Slide4";
+import { Slide5 } from "./CodeContest/slides/Slide5";
+import { Slot } from '@radix-ui/react-slot';
+import { cva } from 'class-variance-authority';
 
-interface EnhancedCodeContestVideoProps {
-  autoPlay?: boolean;
-  duration?: number;
-  qrCodeUrl?: string;
-}
+const slides = [Slide1, Slide2, Slide3, Slide4, Slide5];
 
-export function EnhancedCodeContestVideo({
-  autoPlay = true,
-  duration = 5000,
-  qrCodeUrl = "http://example.com/",
-}: EnhancedCodeContestVideoProps) {
-  const [currentScene, setCurrentScene] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(autoPlay);
-  const [progress, setProgress] = useState(0);
+const slideNames = [
+  "BodhScript Club",
+  "CodeClash 2025", 
+  "Event Timeline",
+  "Competition",
+  "Registration"
+];
 
+export default function App() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [direction, setDirection] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true); // Auto-play enabled by default
 
-  const scenes = [
-    { id: 'lpu-intro', title: 'BodhScript Club', subtitle: 'Presents', icon: Globe, background: 'from-blue-900 via-purple-900 to-indigo-900', vfx: 'university' },
-    { id: 'event-title', title: 'CodeClash 2025', subtitle: 'The Ultimate Battle of Logic & Speed', icon: Rocket, background: 'from-purple-900 via-pink-900 to-red-900', vfx: 'explosion' },
-    { id: 'date-reveal', title: 'September 19th & 24th, 2025', subtitle: 'Event Dates', icon: Calendar, background: 'from-emerald-900 via-teal-900 to-cyan-900', vfx: 'matrix' },
-    { id: 'hackathon-energy', title: 'Code • Build • Innovate', subtitle: 'Where legends are born', icon: Bolt, background: 'from-orange-900 via-red-900 to-pink-900', vfx: 'energy' },
-    { id: 'challenges', title: 'Programming Languages', subtitle: 'C • C++ | 1st Challenge – MCQ Questions | 2nd Challenge – Pure Coding', icon: Target, background: 'from-green-900 via-blue-900 to-purple-900', vfx: 'hologram' },
-    { id: 'prizes', title: 'Win Exciting Prizes', subtitle: 'Amazing rewards await the winners', icon: Award, background: 'from-yellow-900 via-orange-900 to-red-900', vfx: 'golden' },
-    { id: 'call-to-action', title: '', subtitle: '', icon: Zap, background: 'from-purple-900 via-blue-900 to-indigo-900', vfx: 'qrcode' },
-  ];
-
-  // Safe window size handling
-const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
-useEffect(() => {
-  const handleResize = () => setWindowSize({ width: window.innerWidth, height: window.innerHeight });
-  handleResize();
-  window.addEventListener("resize", handleResize);
-  return () => window.removeEventListener("resize", handleResize);
-}, []);
-
-  // Progress logic
-  useEffect(() => {
-    if (!isPlaying) return;
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          const nextScene = currentScene + 1;
-          if (nextScene >= scenes.length) {
-            setIsPlaying(false);
-            return 100;
-          }
-          setCurrentScene(nextScene);
-          return 0;
-        }
-        return prev + 100 / (duration / 100);
-      });
-    }, 100);
-
-    return () => clearInterval(interval);
-  }, [isPlaying, duration, currentScene, scenes.length]);
-
-  // ===================== VFX FUNCTIONS =====================
-
-  const renderUniversityVFX = () => (
-    <div className="absolute inset-0 overflow-hidden">
-      {[...Array(25)].map((_, i) => (
-        <motion.div
-          key={`orb-${i}`}
-          className="absolute rounded-full bg-gradient-to-r from-blue-400 to-purple-400 opacity-60"
-          style={{
-            width: Math.random() * 25 + 15,
-            height: Math.random() * 25 + 15,
-          }}
-          initial={{
-            x: Math.random() * windowSize.width,
-            y: Math.random() * windowSize.height,
-          }}
-          animate={{
-            x: Math.random() * windowSize.width,
-            y: Math.random() * windowSize.height,
-            rotate: [0, 360],
-            scale: [1, 1.6, 1],
-          }}
-          transition={{
-            duration: Math.random() * 4 + 3,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
-    </div>
-  );
-
-  const renderExplosionVFX = () => (
-    <div className="absolute inset-0 overflow-hidden">
-      {[...Array(50)].map((_, i) => (
-        <motion.div
-          key={`explosion-${i}`}
-          className={`absolute w-3 h-3 rounded-full ${
-            i % 5 === 0 ? "bg-yellow-400" :
-            i % 5 === 1 ? "bg-orange-400" :
-            i % 5 === 2 ? "bg-red-400" :
-            i % 5 === 3 ? "bg-pink-400" : "bg-purple-400"
-          }`}
-          initial={{ x: windowSize.width / 2, y: windowSize.height / 2, scale: 0 }}
-          animate={{
-            x: windowSize.width / 2 + (Math.random() - 0.5) * 1000,
-            y: windowSize.height / 2 + (Math.random() - 0.5) * 800,
-            scale: [0, 1, 0],
-            opacity: [1, 1, 0],
-          }}
-          transition={{
-            duration: Math.random() * 2 + 1,
-            repeat: Infinity,
-            delay: Math.random() * 2,
-          }}
-        />
-      ))}
-    </div>
-  );
-
-  const renderMatrixVFX = () => (
-    <div className="absolute inset-0 overflow-hidden">
-      {[...Array(35)].map((_, i) => (
-        <motion.div
-          key={`matrix-${i}`}
-          className="absolute text-green-400 text-xs opacity-70 font-mono"
-          initial={{ x: (i * windowSize.width) / 35, y: -50 }}
-          animate={{ y: windowSize.height + 50 }}
-          transition={{ duration: Math.random() * 3 + 2, repeat: Infinity, delay: Math.random() * 2, ease: "linear" }}
-        >
-          {Array.from({ length: 15 }, () => (Math.random() > 0.5 ? "1" : "0")).join("")}
-        </motion.div>
-      ))}
-    </div>
-  );
-
-  const renderEnergyVFX = () => (
-    <div className="absolute inset-0 overflow-hidden">
-      {[...Array(12)].map((_, i) => (
-        <motion.div
-          key={`bolt-${i}`}
-          className="absolute"
-          initial={{ x: Math.random() * windowSize.width, y: Math.random() * windowSize.height, opacity: 0 }}
-          animate={{ opacity: [0, 1, 0], scale: [0.5, 1.2, 0.5] }}
-          transition={{ duration: 0.5, repeat: Infinity, delay: Math.random() * 2, repeatDelay: Math.random() * 2 }}
-        >
-          <Bolt className="w-8 h-8 text-yellow-400" />
-        </motion.div>
-      ))}
-    </div>
-  );
-
-  const renderQRCodeVFX = () => (
-    <div className="absolute inset-0 overflow-hidden">
-      {[...Array(5)].map((_, i) => (
-        <motion.div
-          key={`qr-pulse-${i}`}
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 border-2 border-white/40 rounded-lg"
-          initial={{ scale: 1, opacity: 0.8 }}
-          animate={{ scale: [1, 1.6], opacity: [0.8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
-          style={{ width: 280, height: 280 }}
-        />
-      ))}
-    </div>
-  );
-
-  const renderVFX = (vfxType: string) => {
-    switch (vfxType) {
-      case "university": return renderUniversityVFX();
-      case "explosion": return renderExplosionVFX();
-      case "matrix": return renderMatrixVFX();
-      case "energy": return renderEnergyVFX();
-      case "qrcode": return renderQRCodeVFX();
-      default: return null;
-    }
+  const nextSlide = () => {
+    setDirection(1);
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
   };
 
-  const currentSceneData = scenes[currentScene];
+  const prevSlide = () => {
+    setDirection(-1);
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
 
-  // 3️⃣ Grab its icon
-  const Icon = currentSceneData.icon;
+  const goToSlide = (index: number) => {
+    setDirection(index > currentSlide ? 1 : -1);
+    setCurrentSlide(index);
+  };
+
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    
+    // Stop auto-play when reaching the last slide
+    if (currentSlide === slides.length - 1) {
+      setIsAutoPlaying(false);
+      return;
+    }
+    
+    const interval = setInterval(() => {
+      if (currentSlide < slides.length - 1) {
+        nextSlide();
+      }
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, currentSlide]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        prevSlide();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [currentSlide]);
+
+  const CurrentSlideComponent = slides[currentSlide];
+
   return (
-    <div className={`relative w-full h-full rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br ${currentSceneData.background}`}>
-      {renderVFX(currentSceneData.vfx)}
-
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
-  <Icon className="w-16 h-16 text-white mb-4" />
-  <h2 className="text-3xl md:text-5xl font-bold text-white mb-2">
-    {currentSceneData.title}
-  </h2>
-  <p className="text-lg md:text-2xl text-white/80">
-    {currentSceneData.subtitle}
-  </p>
-
-  {currentSceneData.vfx === "qrcode" && (
-    <div className="mt-8">
-      <img
-        src="/images/CodeClashQr.jpg"
-        className="h-80 w-auto mx-auto"
-      />
-    </div>
-  )}
-</div>
-
-
-      <div className="absolute bottom-4 left-4 right-4 h-2 bg-white/20 rounded-full">
-        <div className="h-2 bg-cyan-400 rounded-full" style={{ width: `${progress}%` }} />
+    <div className="size-full relative bg-black overflow-hidden">
+      {/* Main Slide Area */}
+      <div className="relative size-full">
+        <SlideTransition slideKey={currentSlide} direction={direction}>
+          <CurrentSlideComponent />
+        </SlideTransition>
       </div>
+
+      {/* Navigation Controls */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1 }}
+        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20"
+      >
+        <div className="flex items-center gap-4 bg-black/50 backdrop-blur-sm rounded-full px-6 py-3">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={prevSlide}
+            className="text-white hover:bg-white/20 p-2"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </Button>
+
+          <div className="flex items-center gap-2">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentSlide
+                    ? "bg-white scale-125"
+                    : "bg-white/40 hover:bg-white/60"
+                }`}
+              />
+            ))}
+          </div>
+
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={nextSlide}
+            className="text-white hover:bg-white/20 p-2"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </Button>
+
+          <div className="w-px h-6 bg-white/30 mx-2" />
+
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+            className="text-white hover:bg-white/20 p-2"
+          >
+            {isAutoPlaying ? (
+              <Pause className="w-5 h-5" />
+            ) : (
+              <Play className="w-5 h-5" />
+            )}
+          </Button>
+        </div>
+      </motion.div>
+
+      {/* Slide Counter */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2 }}
+        className="absolute top-6 right-6 z-20"
+      >
+        <div className="bg-black/50 backdrop-blur-sm rounded-lg px-4 py-2 text-white">
+          <div className="text-sm opacity-75 mb-1">
+            {currentSlide + 1} / {slides.length}
+          </div>
+          <div className="text-lg">{slideNames[currentSlide]}</div>
+        </div>
+      </motion.div>
+
+      {/* Progress Bar */}
+      <motion.div
+        className="absolute top-0 left-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 z-20"
+        initial={{ width: "0%" }}
+        animate={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
+        transition={{ duration: 0.5 }}
+      />
+
+      {/* Keyboard Navigation Hint */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2 }}
+        className="absolute bottom-6 left-6 z-20 text-white/60 text-sm"
+      >
+        <div className="bg-black/30 backdrop-blur-sm rounded-lg px-3 py-2">
+          Use ← → keys or controls to navigate
+        </div>
+      </motion.div>
     </div>
   );
 }
@@ -375,7 +314,7 @@ export function EventSpotlight() {
       </div>
 
        <div className="relative w-full h-96 md:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
-          <EnhancedCodeContestVideo  />
+          <App  />
         </div>
 
 
