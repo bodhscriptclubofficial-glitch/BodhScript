@@ -52,7 +52,7 @@ export function EnhancedCodeContestVideo({
 
 
   const scenes = [
-    { id: 'lpu-intro', title: 'BodhScriptClub', subtitle: 'Presents', icon: Globe, background: 'from-blue-900 via-purple-900 to-indigo-900', vfx: 'university' },
+    { id: 'lpu-intro', title: 'BodhScript Club', subtitle: 'Presents', icon: Globe, background: 'from-blue-900 via-purple-900 to-indigo-900', vfx: 'university' },
     { id: 'event-title', title: 'CodeClash 2025', subtitle: 'The Ultimate Battle of Logic & Speed', icon: Rocket, background: 'from-purple-900 via-pink-900 to-red-900', vfx: 'explosion' },
     { id: 'date-reveal', title: 'September 19th & 24th, 2025', subtitle: 'Event Dates', icon: Calendar, background: 'from-emerald-900 via-teal-900 to-cyan-900', vfx: 'matrix' },
     { id: 'hackathon-energy', title: 'Code • Build • Innovate', subtitle: 'Where legends are born', icon: Bolt, background: 'from-orange-900 via-red-900 to-pink-900', vfx: 'energy' },
