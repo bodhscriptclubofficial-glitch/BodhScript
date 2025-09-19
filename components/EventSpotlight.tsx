@@ -1,5 +1,5 @@
 'use client';
-import React, { useRef,useEffect, useState } from 'react';
+import React, { useRef,useEffect, useState,ReactElement } from 'react';
 import { BentoGrid, BentoGridItem } from './ui/bento-grid'
 import { motion } from 'motion/react';
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
@@ -13,181 +13,192 @@ import { Slide5 } from "./CodeContest/slides/Slide5";
 import { Slot } from '@radix-ui/react-slot';
 import { cva } from 'class-variance-authority';
 
-const slides = [Slide1, Slide2, Slide3, Slide4, Slide5];
+//const slides = [Slide1, Slide2, Slide3, Slide4, Slide5];
 
-const slideNames = [
-  "BodhScript Club",
-  "CodeClash 2025", 
-  "Event Timeline",
-  "Competition",
-  "Registration"
+
+
+type Slide = {
+  src: string;
+  alt: string;
+  name: string;
+};
+
+// ✅ Strongly typed array of slides
+const slides: Slide[] = [
+  { src: "/images/CodeClash/img1.jpeg", alt: "img1", name: "" },
+  { src: "/images/CodeClash/img2.jpeg", alt: "img1", name: "" },
+  { src: "/images/CodeClash/img3.jpeg", alt: "img1", name: "" },
+  { src: "/images/CodeClash/img4.jpeg", alt: "img1", name: "" },
+  { src: "/images/CodeClash/img5.jpeg", alt: "img1", name: "" },
+  { src: "/images/CodeClash/img6.jpeg", alt: "img1", name: "" },
+  { src: "/images/CodeClash/img7.jpeg", alt: "img1", name: "" },
+  { src: "/images/CodeClash/img8.jpeg", alt: "img1", name: "" },
+  { src: "/images/CodeClash/img9.jpeg", alt: "img1", name: "" },
+  { src: "/images/CodeClash/img10.jpeg", alt: "img1", name: "" },
+  { src: "/images/CodeClash/img11.jpeg", alt: "img1", name: "" },
+  { src: "/images/CodeClash/img12.jpeg", alt: "img1", name: "" },
 ];
 
-export default function App() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [direction, setDirection] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true); // Auto-play enabled by default
+export default function App(): ReactElement {
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(true);
 
-  const nextSlide = () => {
-    setDirection(1);
+  const nextSlide = (): void => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
   };
 
-  const prevSlide = () => {
-    setDirection(-1);
+  const prevSlide = (): void => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
-  const goToSlide = (index: number) => {
-    setDirection(index > currentSlide ? 1 : -1);
-    setCurrentSlide(index);
   };
 
   useEffect(() => {
     if (!isAutoPlaying) return;
-    
-    // Stop auto-play when reaching the last slide
-    if (currentSlide === slides.length - 1) {
-      setIsAutoPlaying(false);
-      return;
-    }
-    
-    const interval = setInterval(() => {
-      if (currentSlide < slides.length - 1) {
-        nextSlide();
-      }
-    }, 5000);
-
+    const interval = setInterval(() => nextSlide(), 6000);
     return () => clearInterval(interval);
   }, [isAutoPlaying, currentSlide]);
 
-  // Keyboard navigation
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowRight' || e.key === ' ') {
-        e.preventDefault();
-        nextSlide();
-      } else if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        prevSlide();
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [currentSlide]);
-
-  const CurrentSlideComponent = slides[currentSlide];
-
   return (
-    <div className="size-full relative bg-black overflow-hidden">
-      {/* Main Slide Area */}
-      <div className="relative size-full">
-        <SlideTransition slideKey={currentSlide} direction={direction}>
-          <CurrentSlideComponent />
-        </SlideTransition>
+    <div className="size-full relative bg-black overflow-hidden perspective-[1200px]">
+      {/* Gradient Moving Background */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-r from-purple-900 via-black to-blue-900"
+        animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+        style={{ backgroundSize: "200% 200%" }}
+      />
+
+      {/* Floating Particles */}
+      <div className="absolute inset-0 overflow-hidden z-0">
+        {[...Array(20)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-2 h-2 bg-white/40 rounded-full blur-sm"
+            initial={{ x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight }}
+            animate={{
+              y: [0, -50, 0],
+              opacity: [0.2, 1, 0.2],
+            }}
+            transition={{
+              duration: 4 + Math.random() * 6,
+              repeat: Infinity,
+              delay: Math.random() * 5,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Title */}
+      <motion.div
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.5 }}
+        className="absolute top-12 left-1/2 -translate-x-1/2 z-30 text-center"
+      >
+        <h1 className="text-6xl md:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 drop-shadow-2xl">
+          Code Clash 2025
+        </h1>
+        <p className="text-xl md:text-3xl text-white/90 mt-3 animate-pulse tracking-wide">
+          🚀 Event Spotlight ✨
+        </p>
+      </motion.div>
+
+      {/* Active Fullscreen Slide with Ken Burns */}
+      <motion.div
+        key={currentSlide}
+        className="absolute inset-0 z-10"
+        initial={{ opacity: 0, scale: 1.1 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.9 }}
+        transition={{ duration: 1.2, ease: "easeInOut" }}
+      >
+        <motion.img
+          src={slides[currentSlide].src}
+          alt={slides[currentSlide].alt}
+          className="w-full h-full object-cover"
+          initial={{ scale: 1 }}
+          animate={{ scale: [1, 1.05, 1] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        />
+        {/* Overlay gradient for readability */}
+        <div className="absolute inset-0 bg-black/40" />
+      </motion.div>
+
+      {/* Orbiting Slides in Background */}
+      <div className="absolute inset-0 flex items-center justify-center z-0">
+        {slides.map((slide, index) => {
+          if (index === currentSlide) return null;
+          const angle = (360 / slides.length) * (index - currentSlide);
+
+          return (
+            <motion.div
+              key={index}
+              className="absolute w-1/4 md:w-1/5 aspect-video rounded-lg overflow-hidden shadow-lg"
+              style={{ transformStyle: "preserve-3d" }}
+              animate={{
+                rotateY: angle,
+                translateZ: 300,
+                scale: 0.7,
+                opacity: 0.5,
+              }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+            >
+              <img src={slide.src} alt={slide.alt} className="w-full h-full object-cover" />
+            </motion.div>
+          );
+        })}
       </div>
 
       {/* Navigation Controls */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20"
-      >
-        <div className="flex items-center gap-4 bg-black/50 backdrop-blur-sm rounded-full px-6 py-3">
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={prevSlide}
-            className="text-white hover:bg-white/20 p-2"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </Button>
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30 flex items-center gap-4 bg-black/60 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg">
+        <Button variant="ghost" size="sm" onClick={prevSlide} className="text-white hover:bg-white/20 p-2">
+          <ChevronLeft className="w-5 h-5" />
+        </Button>
 
-          <div className="flex items-center gap-2">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentSlide
-                    ? "bg-white scale-125"
-                    : "bg-white/40 hover:bg-white/60"
-                }`}
-              />
-            ))}
-          </div>
-
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={nextSlide}
-            className="text-white hover:bg-white/20 p-2"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </Button>
-
-          <div className="w-px h-6 bg-white/30 mx-2" />
-
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-            className="text-white hover:bg-white/20 p-2"
-          >
-            {isAutoPlaying ? (
-              <Pause className="w-5 h-5" />
-            ) : (
-              <Play className="w-5 h-5" />
-            )}
-          </Button>
+        <div className="flex items-center gap-2">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === currentSlide ? "bg-white scale-125" : "bg-white/40 hover:bg-white/60"
+              }`}
+            />
+          ))}
         </div>
-      </motion.div>
+
+        <Button variant="ghost" size="sm" onClick={nextSlide} className="text-white hover:bg-white/20 p-2">
+          <ChevronRight className="w-5 h-5" />
+        </Button>
+
+        <div className="w-px h-6 bg-white/30 mx-2" />
+
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+          className="text-white hover:bg-white/20 p-2"
+        >
+          {isAutoPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
+        </Button>
+      </div>
 
       {/* Slide Counter */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="absolute top-6 right-6 z-20"
+        transition={{ delay: 1 }}
+        className="absolute top-6 right-6 z-30"
       >
-        <div className="bg-black/50 backdrop-blur-sm rounded-lg px-4 py-2 text-white">
+        <div className="bg-black/60 backdrop-blur-md rounded-lg px-4 py-2 text-white shadow-lg">
           <div className="text-sm opacity-75 mb-1">
             {currentSlide + 1} / {slides.length}
           </div>
-          <div className="text-lg">{slideNames[currentSlide]}</div>
-        </div>
-      </motion.div>
-
-      {/* Progress Bar */}
-      <motion.div
-        className="absolute top-0 left-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 z-20"
-        initial={{ width: "0%" }}
-        animate={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
-        transition={{ duration: 0.5 }}
-      />
-
-      {/* Keyboard Navigation Hint */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
-        className="absolute bottom-6 left-6 z-20 text-white/60 text-sm"
-      >
-        <div className="bg-black/30 backdrop-blur-sm rounded-lg px-3 py-2">
-          Use ← → keys or controls to navigate
+          <div className="text-lg font-bold">{slides[currentSlide].name}</div>
         </div>
       </motion.div>
     </div>
   );
 }
-
-
-
-
-
-
 
 
 
