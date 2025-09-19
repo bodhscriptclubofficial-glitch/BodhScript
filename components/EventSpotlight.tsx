@@ -1,7 +1,7 @@
 'use client';
 import React, { useRef,useEffect, useState,ReactElement } from 'react';
 import { BentoGrid, BentoGridItem } from './ui/bento-grid'
-import { motion } from 'motion/react';
+import { motion ,AnimatePresence} from 'motion/react';
 import { ChevronLeft, ChevronRight, Play, Pause } from "lucide-react";
 import { Button } from "./CodeContest/ui/button";
 import { SlideTransition } from "./CodeContest/SlideTransition";
@@ -42,163 +42,132 @@ const slides: Slide[] = [
 export default function App(): ReactElement {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(true);
+  const [particles, setParticles] = useState<{ x: number; y: number; size: number }[]>([]);
 
-  const nextSlide = (): void => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
+  // Generate background particles
+  useEffect(() => {
+    const generated = [...Array(30)].map(() => ({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      size: 2 + Math.random() * 3,
+    }));
+    setParticles(generated);
+  }, []);
 
-  const prevSlide = (): void => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  };
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
+  // Auto-play
   useEffect(() => {
     if (!isAutoPlaying) return;
-    const interval = setInterval(() => nextSlide(), 6000);
+    const interval = setInterval(nextSlide, 6000);
     return () => clearInterval(interval);
-  }, [isAutoPlaying, currentSlide]);
+  }, [isAutoPlaying]);
 
   return (
-    <div className="size-full relative bg-black overflow-hidden perspective-[1200px]">
-      {/* Gradient Moving Background */}
+    <div className="relative w-full h-screen overflow-hidden bg-black">
+      {/* Animated Gradient Background */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-r from-purple-900 via-black to-blue-900"
+        className="absolute inset-0"
+        style={{
+          background: "linear-gradient(270deg, #6e3dc2, #3dc2b0, #c23dc2, #3dc26e)",
+          backgroundSize: "800% 800%",
+        }}
         animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
-        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-        style={{ backgroundSize: "200% 200%" }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
       />
 
       {/* Floating Particles */}
-      <div className="absolute inset-0 overflow-hidden z-0">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-2 h-2 bg-white/40 rounded-full blur-sm"
-            initial={{ x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight }}
-            animate={{
-              y: [0, -50, 0],
-              opacity: [0.2, 1, 0.2],
-            }}
-            transition={{
-              duration: 4 + Math.random() * 6,
-              repeat: Infinity,
-              delay: Math.random() * 5,
-            }}
-          />
-        ))}
-      </div>
+      {particles.map((p, i) => (
+        <motion.div
+          key={i}
+          className="absolute bg-white rounded-full"
+          style={{ width: p.size, height: p.size }}
+          initial={{ x: p.x, y: p.y, opacity: 0 }}
+          animate={{
+            y: [p.y, p.y - 40, p.y],
+            opacity: [0.3, 0.8, 0.3],
+          }}
+          transition={{
+            duration: 4 + Math.random() * 4,
+            repeat: Infinity,
+            delay: Math.random() * 5,
+          }}
+        />
+      ))}
 
-      {/* Title */}
+      {/* Animated Headings */}
       <motion.div
-        initial={{ opacity: 0, y: -50 }}
+        className="absolute top-12 left-1/2 -translate-x-1/2 text-center z-20"
+        initial={{ opacity: 0, y: -30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.5 }}
-        className="absolute top-12 left-1/2 -translate-x-1/2 z-30 text-center"
       >
-        <h1 className="text-6xl md:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 drop-shadow-2xl">
+        <h1 className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 drop-shadow-lg">
           Code Clash 2025
         </h1>
-        <p className="text-xl md:text-3xl text-white/90 mt-3 animate-pulse tracking-wide">
-          🚀 Event Spotlight ✨
+        <p className="mt-3 text-lg md:text-2xl text-white/80 animate-pulse">
+          Event Spotlights ✨
         </p>
       </motion.div>
 
-      {/* Active Fullscreen Slide with Ken Burns */}
-      <motion.div
-        key={currentSlide}
-        className="absolute inset-0 z-10"
-        initial={{ opacity: 0, scale: 1.1 }}
-        animate={{ opacity: 1, scale: 1 }}
-        exit={{ opacity: 0, scale: 0.9 }}
-        transition={{ duration: 1.2, ease: "easeInOut" }}
-      >
-        <motion.img
-          src={slides[currentSlide].src}
-          alt={slides[currentSlide].alt}
-          className="w-full h-full object-cover"
-          initial={{ scale: 1 }}
-          animate={{ scale: [1, 1.05, 1] }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-        />
-        {/* Overlay gradient for readability */}
-        <div className="absolute inset-0 bg-black/40" />
-      </motion.div>
-
-      {/* Orbiting Slides in Background */}
-      <div className="absolute inset-0 flex items-center justify-center z-0">
-        {slides.map((slide, index) => {
-          if (index === currentSlide) return null;
-          const angle = (360 / slides.length) * (index - currentSlide);
-
-          return (
-            <motion.div
-              key={index}
-              className="absolute w-1/4 md:w-1/5 aspect-video rounded-lg overflow-hidden shadow-lg"
-              style={{ transformStyle: "preserve-3d" }}
+      {/* Slide Show */}
+      <div className="absolute inset-0 flex items-center justify-center z-10">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentSlide}
+            className="relative w-[90%] md:w-4/5 lg:w-2/3 aspect-video rounded-2xl overflow-hidden shadow-2xl"
+            initial={{ opacity: 0, scale: 0.95, rotate: -2 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            exit={{ opacity: 0, scale: 0.95, rotate: 2 }}
+            transition={{ duration: 1, ease: "easeInOut" }}
+          >
+            <motion.img
+              src={slides[currentSlide].src}
+              alt={slides[currentSlide].alt}
+              className="w-full h-full object-cover"
+              initial={{ scale: 1 }}
               animate={{
-                rotateY: angle,
-                translateZ: 300,
-                scale: 0.7,
-                opacity: 0.5,
+                scale: [1, 1.03, 1],
+                rotate: [0, 1, 0],
               }}
-              transition={{ duration: 1.5, ease: "easeInOut" }}
-            >
-              <img src={slide.src} alt={slide.alt} className="w-full h-full object-cover" />
-            </motion.div>
-          );
-        })}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            />
+
+            {/* Neon Outline Effect */}
+            <motion.div
+              className="absolute inset-0 border-4 rounded-2xl border-pink-500/30"
+              animate={{ opacity: [0.2, 0.5, 0.2] }}
+              transition={{ duration: 3, repeat: Infinity }}
+            />
+          </motion.div>
+        </AnimatePresence>
       </div>
 
-      {/* Navigation Controls */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-30 flex items-center gap-4 bg-black/60 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg">
-        <Button variant="ghost" size="sm" onClick={prevSlide} className="text-white hover:bg-white/20 p-2">
+      {/* Navigation */}
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 flex items-center gap-4">
+        <Button onClick={prevSlide} className="text-white p-2">
           <ChevronLeft className="w-5 h-5" />
         </Button>
-
-        <div className="flex items-center gap-2">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentSlide ? "bg-white scale-125" : "bg-white/40 hover:bg-white/60"
-              }`}
-            />
-          ))}
-        </div>
-
-        <Button variant="ghost" size="sm" onClick={nextSlide} className="text-white hover:bg-white/20 p-2">
+        <Button onClick={nextSlide} className="text-white p-2">
           <ChevronRight className="w-5 h-5" />
         </Button>
-
-        <div className="w-px h-6 bg-white/30 mx-2" />
-
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-          className="text-white hover:bg-white/20 p-2"
-        >
+        <Button onClick={() => setIsAutoPlaying(!isAutoPlaying)} className="text-white p-2">
           {isAutoPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
         </Button>
       </div>
 
       {/* Slide Counter */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-        className="absolute top-6 right-6 z-30"
-      >
-        <div className="bg-black/60 backdrop-blur-md rounded-lg px-4 py-2 text-white shadow-lg">
-          <div className="text-sm opacity-75 mb-1">
-            {currentSlide + 1} / {slides.length}
-          </div>
-          <div className="text-lg font-bold">{slides[currentSlide].name}</div>
+      <div className="absolute top-6 right-6 z-20 bg-black/50 backdrop-blur-sm rounded-lg px-4 py-2 text-white">
+        <div className="text-sm opacity-75 mb-1">
+          {currentSlide + 1} / {slides.length}
         </div>
-      </motion.div>
+        <div className="text-lg font-bold">{slides[currentSlide].name}</div>
+      </div>
     </div>
   );
 }
+
 
 
 
