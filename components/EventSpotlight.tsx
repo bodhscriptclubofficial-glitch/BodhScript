@@ -26,17 +26,7 @@ type Slide = {
 // ✅ Strongly typed array of slides
 const slides: Slide[] = [
   { src: "/images/CodeClash/img1.jpeg", alt: "img1", name: "" },
-  { src: "/images/CodeClash/img2.jpeg", alt: "img1", name: "" },
-  { src: "/images/CodeClash/img3.jpeg", alt: "img1", name: "" },
-  { src: "/images/CodeClash/img4.jpeg", alt: "img1", name: "" },
-  { src: "/images/CodeClash/img5.jpeg", alt: "img1", name: "" },
-  { src: "/images/CodeClash/img6.jpeg", alt: "img1", name: "" },
-  { src: "/images/CodeClash/img7.jpeg", alt: "img1", name: "" },
-  { src: "/images/CodeClash/img8.jpeg", alt: "img1", name: "" },
-  { src: "/images/CodeClash/img9.jpeg", alt: "img1", name: "" },
-  { src: "/images/CodeClash/img10.jpeg", alt: "img1", name: "" },
-  { src: "/images/CodeClash/img11.jpeg", alt: "img1", name: "" },
-  { src: "/images/CodeClash/img12.jpeg", alt: "img1", name: "" },
+
 ];
 
 export default function App(): ReactElement {
@@ -65,106 +55,106 @@ export default function App(): ReactElement {
   }, [isAutoPlaying]);
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-black">
-      {/* Animated Gradient Background */}
-      <motion.div
-        className="absolute inset-0"
-        style={{
-          background: "linear-gradient(270deg, #6e3dc2, #3dc2b0, #c23dc2, #3dc26e)",
-          backgroundSize: "800% 800%",
+  <div className="relative w-full h-screen bg-black overflow-hidden flex items-center justify-center">
+  {/* Background Gradient Animation */}
+  <motion.div
+    className="absolute inset-0"
+    style={{
+      background: "linear-gradient(270deg, #6e3dc2, #3dc2b0, #c23dc2, #3dc26e)",
+      backgroundSize: "800% 800%",
+    }}
+    animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+  />
+
+  <div className="relative z-10 w-[90%] md:w-5/6 flex flex-col md:flex-row items-center justify-between gap-8">
+{/* Left Side – Animated Text */}
+<motion.div
+  className="w-full md:w-1/2 text-white pr-4"   // 🔥 removed max-h and overflow
+  initial={{ opacity: 0, x: -50 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 1 }}
+>
+  <motion.h2
+    className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-6"
+    initial={{ opacity: 0, y: -20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1 }}
+  >
+    CodeClash 2025 – Successful First Phase 🎉
+  </motion.h2>
+
+  <motion.div
+    initial="hidden"
+    animate="visible"
+    variants={{
+      hidden: { opacity: 0 },
+      visible: {
+        opacity: 1,
+        transition: { staggerChildren: 0.5 }
+      }
+    }}
+  >
+    {[
+      `We are proud to share the success of the first phase of our event, CodeClash, organized by Bodh Script Club. This inaugural phase witnessed enthusiastic participation, where students showcased their coding skills, creativity, and problem-solving abilities with great energy. 💻🚀`,
+      `On behalf of the entire organizing team, we extend our heartfelt gratitude to our respected Prof. (Dr.) Anand Kumar Shukla (Dean, HOS), Dr. Balraj Kumar (HOD), and to all our club members for their constant guidance and encouragement. Your support was the cornerstone of this achievement. 🙏`,
+      `The success of the first phase of CodeClash is a true collective effort, marking a memorable beginning for our journey. With this milestone, we look forward to the upcoming phase and to organizing many more such innovative and impactful events in the future.`
+    ].map((text, idx) => (
+      <motion.p
+        key={idx}
+        className="text-base md:text-lg leading-relaxed text-white/90 mb-4"
+        variants={{
+          hidden: { opacity: 0, y: 20 },
+          visible: { opacity: 1, y: 0 }
         }}
-        animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        transition={{ duration: 1 }}
+      >
+        {text}
+      </motion.p>
+    ))}
+  </motion.div>
+</motion.div>
+
+
+
+{/* Right Side – Big Slideshow Image */}
+<div className="w-full md:w-1/2 flex justify-center items-center">
+  <AnimatePresence mode="wait">
+    <motion.div
+      key={currentSlide}
+      className="relative w-[95%] md:w-[90%] lg:w-[85%] h-[100vh] rounded-2xl overflow-hidden shadow-2xl" 
+      // 🔥 replaced aspect-video with fixed height (70% of screen height)
+      initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
+      animate={{ opacity: 1, scale: 1, rotate: 0 }}
+      exit={{ opacity: 0, scale: 0.9, rotate: 2 }}
+      transition={{ duration: 1, ease: "easeInOut" }}
+    >
+      <motion.img
+        src={slides[currentSlide].src}
+        alt={slides[currentSlide].alt}
+        className="w-full h-full object-contain" // ensures full image visible
+        initial={{ scale: 1 }}
+        animate={{
+          scale: [1, 1.05, 1],
+          rotate: [0, 1, 0],
+        }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Floating Particles */}
-      {particles.map((p, i) => (
-        <motion.div
-          key={i}
-          className="absolute bg-white rounded-full"
-          style={{ width: p.size, height: p.size }}
-          initial={{ x: p.x, y: p.y, opacity: 0 }}
-          animate={{
-            y: [p.y, p.y - 40, p.y],
-            opacity: [0.3, 0.8, 0.3],
-          }}
-          transition={{
-            duration: 4 + Math.random() * 4,
-            repeat: Infinity,
-            delay: Math.random() * 5,
-          }}
-        />
-      ))}
-
-      {/* Animated Headings */}
+      {/* Neon Outline */}
       <motion.div
-        className="absolute top-12 left-1/2 -translate-x-1/2 text-center z-20"
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.5 }}
-      >
-        <h1 className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 drop-shadow-lg">
-          Code Clash 2025
-        </h1>
-        <p className="mt-3 text-lg md:text-2xl text-white/80 animate-pulse">
-          Event Spotlights ✨
-        </p>
-      </motion.div>
+        className="absolute inset-0 border-4 rounded-2xl border-pink-500/30"
+        animate={{ opacity: [0.2, 0.5, 0.2] }}
+        transition={{ duration: 3, repeat: Infinity }}
+      />
+    </motion.div>
+  </AnimatePresence>
+</div>
 
-      {/* Slide Show */}
-      <div className="absolute inset-0 flex items-center justify-center z-10">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentSlide}
-            className="relative w-[90%] md:w-4/5 lg:w-2/3 aspect-video rounded-2xl overflow-hidden shadow-2xl"
-            initial={{ opacity: 0, scale: 0.95, rotate: -2 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
-            exit={{ opacity: 0, scale: 0.95, rotate: 2 }}
-            transition={{ duration: 1, ease: "easeInOut" }}
-          >
-            <motion.img
-              src={slides[currentSlide].src}
-              alt={slides[currentSlide].alt}
-              className="w-full h-full object-cover"
-              initial={{ scale: 1 }}
-              animate={{
-                scale: [1, 1.03, 1],
-                rotate: [0, 1, 0],
-              }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            />
 
-            {/* Neon Outline Effect */}
-            <motion.div
-              className="absolute inset-0 border-4 rounded-2xl border-pink-500/30"
-              animate={{ opacity: [0.2, 0.5, 0.2] }}
-              transition={{ duration: 3, repeat: Infinity }}
-            />
-          </motion.div>
-        </AnimatePresence>
-      </div>
+  </div>
+</div>
 
-      {/* Navigation */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 flex items-center gap-4">
-        <Button onClick={prevSlide} className="text-white p-2">
-          <ChevronLeft className="w-5 h-5" />
-        </Button>
-        <Button onClick={nextSlide} className="text-white p-2">
-          <ChevronRight className="w-5 h-5" />
-        </Button>
-        <Button onClick={() => setIsAutoPlaying(!isAutoPlaying)} className="text-white p-2">
-          {isAutoPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
-        </Button>
-      </div>
-
-      {/* Slide Counter */}
-      <div className="absolute top-6 right-6 z-20 bg-black/50 backdrop-blur-sm rounded-lg px-4 py-2 text-white">
-        <div className="text-sm opacity-75 mb-1">
-          {currentSlide + 1} / {slides.length}
-        </div>
-        <div className="text-lg font-bold">{slides[currentSlide].name}</div>
-      </div>
-    </div>
   );
 }
 
@@ -293,7 +283,7 @@ export function EventSpotlight() {
         <div className='w-24 h-1 bg-gradient-to-r from-cyan-500 to-indigo-500 mx-auto mt-2 rounded-full'></div>
       </div>
 
-       <div className="relative w-full h-96 md:h-[600px] rounded-2xl overflow-hidden shadow-2xl">
+        <div className="relative w-full h-96 md:h-[800px] rounded-2xl overflow-hidden shadow-2xl">
           <App  />
         </div>
 
