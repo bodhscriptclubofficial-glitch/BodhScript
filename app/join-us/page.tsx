@@ -22,7 +22,7 @@ export default function JoinUsPage() {
       {/* QR Code Section */}
       <div className='relative w-96 h-96 p-6 bg-neutral-800 rounded-lg shadow-lg border border-cyan-400'>
         <img
-          src='/images/qr3.jpeg'
+          src='/images/ScanMe.png'
           alt='QR Code'
           className='w-full h-full object-cover rounded-md'
         />

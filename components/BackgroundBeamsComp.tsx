@@ -54,7 +54,7 @@ export function BackgroundBeamsComp() {
           {/* QR Code */}
           <div className='relative w-70 h-64 p-2 bg-neutral-800 rounded-lg shadow-lg border border-cyan-400 '>
             <img
-              src='/images/qr3.jpeg'
+              src='/images/ScanMe.png'
               alt='QR Code'
               className='w-full h-full object-cover rounded-md '
             />
