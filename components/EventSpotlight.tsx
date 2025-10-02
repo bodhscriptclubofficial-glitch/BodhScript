@@ -25,7 +25,7 @@ type Slide = {
 
 // ✅ Strongly typed array of slides
 const slides: Slide[] = [
-  { src: "/images/CodeClash/img1.jpeg", alt: "img1", name: "" },
+  { src: "/images/CodeClash/img2.jpeg", alt: "img2", name: "" },
 
 ];
 
@@ -81,7 +81,7 @@ export default function App(): ReactElement {
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 1 }}
   >
-    CodeClash 2025 – Successful First Phase 🎉
+    CodeClash 2025 : A Phenomenal Success !
   </motion.h2>
 
   <motion.div
@@ -96,9 +96,7 @@ export default function App(): ReactElement {
     }}
   >
     {[
-      `We are proud to share the success of the first phase of our event, CodeClash, organized by Bodh Script Club. This inaugural phase witnessed enthusiastic participation, where students showcased their coding skills, creativity, and problem-solving abilities with great energy. 💻🚀`,
-      `On behalf of the entire organizing team, we extend our heartfelt gratitude to our respected Prof. (Dr.) Anand Kumar Shukla (Dean, HOS), Dr. Balraj Kumar (HOD), and to all our club members for their constant guidance and encouragement. Your support was the cornerstone of this achievement. 🙏`,
-      `The success of the first phase of CodeClash is a true collective effort, marking a memorable beginning for our journey. With this milestone, we look forward to the upcoming phase and to organizing many more such innovative and impactful events in the future.`
+      `The BodhScript Club successfully organized CodeClash, under the guidance of  Dr. Anand Kumar Shukla(HOS, Dean), Dr. Balraj Kumar(HOD) and all the club members . A two-round coding competition filled with enthusiasm and learning. In the first round, over 150 students participated in an MCQ challenge, testing their programming knowledge. The top 20 students advanced to the second round, which featured problem-solving questions in C and C++. After an intense battle of logic and coding skills, three winners emerged and were honored with prizes and appreciation from the Dr. Anand Kumar Shukla(HOS, Dean) and members of club. The event was a grand success, fostering competitive spirit, technical growth, and a passion for programming among participants.`
     ].map((text, idx) => (
       <motion.p
         key={idx}
@@ -122,7 +120,7 @@ export default function App(): ReactElement {
   <AnimatePresence mode="wait">
     <motion.div
       key={currentSlide}
-      className="relative w-[95%] md:w-[90%] lg:w-[85%] h-[100vh] rounded-2xl overflow-hidden shadow-2xl" 
+      className="relative w-[95%] md:w-[90%] lg:w-[85%] h-[50vh] rounded-2xl overflow-hidden shadow-2xl" 
       // 🔥 replaced aspect-video with fixed height (70% of screen height)
       initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
       animate={{ opacity: 1, scale: 1, rotate: 0 }}
@@ -278,7 +276,7 @@ export function EventSpotlight() {
       </div>
        <div className='mt-20 mb-8 text-center'>
         <h3 className='text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-indigo-500 inline-block'>
-          Upcoming Event
+         {/* Upcoming Event*/}
         </h3>
         <div className='w-24 h-1 bg-gradient-to-r from-cyan-500 to-indigo-500 mx-auto mt-2 rounded-full'></div>
       </div>
