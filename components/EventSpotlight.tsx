@@ -25,7 +25,16 @@ type Slide = {
 
 // ✅ Strongly typed array of slides
 const slides: Slide[] = [
-  { src: "/images/CodeClash/img2.jpeg", alt: "img2", name: "" },
+  { src: "/images/CodeClash/CodeClashPic2.jpeg", alt: "CodeClashPic2", name: "" },
+  { src: "/images/CodeClash/CodeClashPic3.jpeg", alt: "CodeClashPic3", name: "" },
+  { src: "/images/CodeClash/CodeClashPic4.jpeg", alt: "CodeClashPic4", name: "" },
+  { src: "/images/CodeClash/CodeClashPic5.jpeg", alt: "CodeClashPic5", name: "" },
+  { src: "/images/CodeClash/CodeClashPic6.jpeg", alt: "CodeClashPic6", name: "" },
+  { src: "/images/CodeClash/CodeClashPic7.jpeg", alt: "CodeClashPic7", name: "" },
+  { src: "/images/CodeClash/CodeClashPic8.jpeg", alt: "CodeClashPic8", name: "" },
+  { src: "/images/CodeClash/CodeClashPic9.jpeg", alt: "CodeClashPic9", name: "" },
+  { src: "/images/CodeClash/CodeClashPic10.jpeg", alt: "CodeClashPic10", name: "" },
+  { src: "/images/CodeClash/CodeClashPic11.jpeg", alt: "CodeClashPic11", name: "" },
 
 ];
 
@@ -120,7 +129,7 @@ export default function App(): ReactElement {
   <AnimatePresence mode="wait">
     <motion.div
       key={currentSlide}
-      className="relative w-[95%] md:w-[90%] lg:w-[85%] h-[50vh] rounded-2xl overflow-hidden shadow-2xl" 
+      className="relative w-[100%] md:w-[100%] lg:w-[100%] h-[60vh] rounded-2xl overflow-hidden shadow-2xl" 
       // 🔥 replaced aspect-video with fixed height (70% of screen height)
       initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
       animate={{ opacity: 1, scale: 1, rotate: 0 }}
