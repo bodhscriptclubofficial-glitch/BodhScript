@@ -41,20 +41,8 @@ const slides: Slide[] = [
 export default function App(): ReactElement {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(true);
-  const [particles, setParticles] = useState<{ x: number; y: number; size: number }[]>([]);
-
-  // Generate background particles
-  useEffect(() => {
-    const generated = [...Array(30)].map(() => ({
-      x: Math.random() * window.innerWidth,
-      y: Math.random() * window.innerHeight,
-      size: 2 + Math.random() * 3,
-    }));
-    setParticles(generated);
-  }, []);
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   // Auto-play
   useEffect(() => {
@@ -64,104 +52,86 @@ export default function App(): ReactElement {
   }, [isAutoPlaying]);
 
   return (
-  <div className="relative w-full h-screen bg-black overflow-hidden flex items-center justify-center">
-  {/* Background Gradient Animation */}
-  <motion.div
-    className="absolute inset-0"
-    style={{
-      background: "linear-gradient(270deg, #6e3dc2, #3dc2b0, #c23dc2, #3dc26e)",
-      backgroundSize: "800% 800%",
-    }}
-    animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
-    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-  />
-
-  <div className="relative z-10 w-[90%] md:w-5/6 flex flex-col md:flex-row items-center justify-between gap-8">
-{/* Left Side – Animated Text */}
-<motion.div
-  className="w-full md:w-1/2 text-white pr-4"   // 🔥 removed max-h and overflow
-  initial={{ opacity: 0, x: -50 }}
-  animate={{ opacity: 1, x: 0 }}
-  transition={{ duration: 1 }}
->
-  <motion.h2
-    className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-6"
-    initial={{ opacity: 0, y: -20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 1 }}
-  >
-    CodeClash 2025 : A Phenomenal Success !
-  </motion.h2>
-
-  <motion.div
-    initial="hidden"
-    animate="visible"
-    variants={{
-      hidden: { opacity: 0 },
-      visible: {
-        opacity: 1,
-        transition: { staggerChildren: 0.5 }
-      }
-    }}
-  >
-    {[
-      `The BodhScript Club successfully organized CodeClash, under the guidance of  Dr. Anand Kumar Shukla(HOS, Dean), Dr. Balraj Kumar(HOD) and all the club members . A two-round coding competition filled with enthusiasm and learning. In the first round, over 150 students participated in an MCQ challenge, testing their programming knowledge. The top 20 students advanced to the second round, which featured problem-solving questions in C and C++. After an intense battle of logic and coding skills, three winners emerged and were honored with prizes and appreciation from the Dr. Anand Kumar Shukla(HOS, Dean) and members of club. The event was a grand success, fostering competitive spirit, technical growth, and a passion for programming among participants.`
-    ].map((text, idx) => (
-      <motion.p
-        key={idx}
-        className="text-base md:text-lg leading-relaxed text-white/90 mb-4"
-        variants={{
-          hidden: { opacity: 0, y: 20 },
-          visible: { opacity: 1, y: 0 }
-        }}
-        transition={{ duration: 1 }}
-      >
-        {text}
-      </motion.p>
-    ))}
-  </motion.div>
-</motion.div>
-
-
-
-{/* Right Side – Big Slideshow Image */}
-<div className="w-full md:w-1/2 flex justify-center items-center">
-  <AnimatePresence mode="wait">
-    <motion.div
-      key={currentSlide}
-      className="relative w-[100%] md:w-[100%] lg:w-[100%] h-[60vh] rounded-2xl overflow-hidden shadow-2xl" 
-      // 🔥 replaced aspect-video with fixed height (70% of screen height)
-      initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
-      animate={{ opacity: 1, scale: 1, rotate: 0 }}
-      exit={{ opacity: 0, scale: 0.9, rotate: 2 }}
-      transition={{ duration: 1, ease: "easeInOut" }}
-    >
-      <motion.img
-        src={slides[currentSlide].src}
-        alt={slides[currentSlide].alt}
-        className="w-full h-full object-contain" // ensures full image visible
-        initial={{ scale: 1 }}
-        animate={{
-          scale: [1, 1.05, 1],
-          rotate: [0, 1, 0],
-        }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-      />
-
-      {/* Neon Outline */}
+    <div className="relative w-full min-h-screen bg-black overflow-hidden flex items-center justify-center p-4">
+      {/* Background Gradient */}
       <motion.div
-        className="absolute inset-0 border-4 rounded-2xl border-pink-500/30"
-        animate={{ opacity: [0.2, 0.5, 0.2] }}
-        transition={{ duration: 3, repeat: Infinity }}
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(270deg, #6e3dc2, #3dc2b0, #c23dc2, #3dc26e)",
+          backgroundSize: "800% 800%",
+        }}
+        animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
       />
-    </motion.div>
-  </AnimatePresence>
-</div>
 
+      <div className="relative z-10 w-full max-w-7xl flex flex-col md:flex-row items-center justify-between gap-8">
+        {/* Left Side – Text */}
+        <motion.div
+          className="w-full md:w-1/2 text-white"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <motion.h2
+            className="text-2xl sm:text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-6 text-center md:text-left"
+          >
+            CodeClash 2025 : A Phenomenal Success !
+          </motion.h2>
 
-  </div>
-</div>
+          <motion.p className="text-sm sm:text-base md:text-lg leading-relaxed text-white/90 text-justify">
+            The BodhScript Club successfully organized CodeClash, under the
+            guidance of Dr. Anand Kumar Shukla (HOS, Dean), Dr. Balraj Kumar
+            (HOD) and all the club members. A two-round coding competition filled
+            with enthusiasm and learning. In the first round, over 150 students
+            participated in an MCQ challenge, testing their programming
+            knowledge. The top 20 students advanced to the second round, which
+            featured problem-solving questions in C and C++. After an intense
+            battle of logic and coding skills, three winners emerged and were
+            honored with prizes and appreciation. The event was a grand success,
+            fostering competitive spirit, technical growth, and a passion for
+            programming among participants.
+          </motion.p>
+        </motion.div>
 
+        {/* Right Side – Slideshow */}
+        <div className="w-full md:w-1/2 flex justify-center items-center">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentSlide}
+              className="relative w-full max-w-md md:max-w-full aspect-video rounded-xl md:rounded-2xl overflow-hidden shadow-2xl"
+              initial={{ opacity: 0, scale: 0.9, rotate: -2 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              exit={{ opacity: 0, scale: 0.9, rotate: 2 }}
+              transition={{ duration: 1, ease: "easeInOut" }}
+            >
+              <motion.img
+                src={slides[currentSlide].src}
+                alt={slides[currentSlide].alt}
+                className="w-full h-full object-cover md:object-contain"
+                initial={{ scale: 1 }}
+                animate={{
+                  scale: [1, 1.05, 1],
+                  rotate: [0, 1, 0],
+                }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
+
+              {/* Neon Outline */}
+              <motion.div
+                className="absolute inset-0 border-2 md:border-4 rounded-xl md:rounded-2xl border-pink-500/30"
+                animate={{ opacity: [0.2, 0.5, 0.2] }}
+                transition={{ duration: 3, repeat: Infinity }}
+              />
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -290,9 +260,10 @@ export function EventSpotlight() {
         <div className='w-24 h-1 bg-gradient-to-r from-cyan-500 to-indigo-500 mx-auto mt-2 rounded-full'></div>
       </div>
 
-        <div className="relative w-full h-96 md:h-[800px] rounded-2xl overflow-hidden shadow-2xl">
-          <App  />
-        </div>
+       <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl">
+         <App />
+      </div>
+
 
 
       {/* Enhanced Marquee Section */}
