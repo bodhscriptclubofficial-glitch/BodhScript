@@ -70,7 +70,7 @@ function MiniMovie({ event, onComplete }: { event: EventType; onComplete: () => 
 
   return (
     <div className="relative w-full max-w-6xl mx-auto my-12 rounded-3xl overflow-hidden bg-black">
-      {/* Background div to avoid dark flashes */}
+      {/* Background to avoid dark flashes */}
       <div className="absolute inset-0 -z-20 bg-black" />
 
       {/* Floating particles */}
@@ -93,10 +93,9 @@ function MiniMovie({ event, onComplete }: { event: EventType; onComplete: () => 
           src={slides[currentSlide].src}
           alt={slides[currentSlide].alt}
           className="w-full h-[550px] object-cover relative z-10"
-          style={{ filter: 'brightness(1.1)' }} // slight boost for brightness
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: [1, 1.05, 1] }}
-          exit={{ opacity: 1, scale: 1 }} // no fade to black
+          exit={{ opacity: 1, scale: 1 }}
           transition={{ duration: 3.5, ease: 'easeInOut' }}
         />
       </AnimatePresence>
@@ -158,13 +157,16 @@ function UpcomingEvents() {
     return () => clearInterval(interval);
   }, [currentSlide, isAutoPlaying]);
 
-  // Keyboard navigation
+  // Keyboard navigation (client-only)
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
     const handleKeyPress = (e: KeyboardEvent) => {
       if (e.key === 'ArrowRight') { nextSlide(); setIsAutoPlaying(false); }
       if (e.key === 'ArrowLeft') { prevSlide(); setIsAutoPlaying(false); }
       if (e.key === ' ') { e.preventDefault(); setIsAutoPlaying((prev) => !prev); }
     };
+
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [currentSlide]);
@@ -192,7 +194,7 @@ function UpcomingEvents() {
 
       <TransitionEffect isActive={showTransition} />
 
-      {/* Navigation */}
+      {/* Navigation Buttons */}
       <button onClick={() => { prevSlide(); setIsAutoPlaying(false); }}
         className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-4 rounded-full bg-purple-600 text-white shadow-lg">
         <ChevronLeft className="w-6 h-6" />
