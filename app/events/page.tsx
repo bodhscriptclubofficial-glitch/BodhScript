@@ -1,8 +1,10 @@
 'use client'
 
-import { EventSpotlight } from '@/components/EventSpotlight'
+import {EventSpotlight} from '@/components/EventSpotlight'
 import Features from '@/components/Features'
 import { Organizer } from '@/components/Organizer'
+
+
 
 export default function EventsPage() {
   return (
