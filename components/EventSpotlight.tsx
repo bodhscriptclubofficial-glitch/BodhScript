@@ -172,7 +172,7 @@ function UpcomingEvents() {
   }, [currentSlide]);
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto my-12 h-[650px] rounded-3xl overflow-hidden">
+    <div className="relative w-full max-w-7xl mx-auto my-12 h-[900px] sm:h-[1000px] md:h-[1100px] rounded-3xl overflow-hidden">
       <CodeRainBackground />
 
       <div className="relative w-full h-full z-10">
