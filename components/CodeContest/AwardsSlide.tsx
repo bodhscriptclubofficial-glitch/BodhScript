@@ -157,7 +157,8 @@ export function AwardsSlide() {
         </motion.div>
 
         {/* Benefits Grid */}
-        <div className="grid grid-cols-3 gap-6">
+              {/* Benefits Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <motion.div
             className="relative group"
             initial={{ opacity: 0, x: -50 }}
@@ -221,6 +222,7 @@ export function AwardsSlide() {
             </div>
           </motion.div>
         </div>
+
 
         {/* Call to Action */}
         <motion.div

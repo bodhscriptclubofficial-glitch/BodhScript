@@ -172,7 +172,7 @@ function UpcomingEvents() {
   }, [currentSlide]);
 
   return (
-    <div className="relative w-full max-w-7xl mx-auto my-12 h-[900px] sm:h-[1000px] md:h-[1100px] rounded-3xl overflow-hidden">
+<div className="relative w-[95%] sm:w-[90%] md:w-[85%] lg:w-[80%] xl:max-w-[1500px] mx-auto my-12 h-[750px] sm:h-[900px] md:h-[1000px] lg:h-[1100px] xl:h-[1200px] rounded-3xl overflow-hidden">
       <CodeRainBackground />
 
       <div className="relative w-full h-full z-10">
@@ -234,12 +234,15 @@ export function EventSpotlight() {
       </section>
 
       {/* Upcoming Events */}
-      <section className="py-16">
+     <section className="py-16">
         <h2 className="text-4xl font-bold text-center mb-8 bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-purple-500">
           Upcoming Events
         </h2>
-        <UpcomingEvents />
+        <div className="relative w-[95%] sm:w-[90%] md:w-[85%] lg:w-[80%] xl:max-w-[1600px] mx-auto h-[900px] sm:h-[1000px] md:h-[1100px] lg:h-[1200px] rounded-3xl overflow-hidden">
+          <UpcomingEvents />
+        </div>
       </section>
+
     </div>
   );
 }
