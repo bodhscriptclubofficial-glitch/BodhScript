@@ -9,45 +9,75 @@ export function FacultySpotlight() {
 
   const faculty = [
     {
-      name: 'Dr. Sarah Mitchell',
-      title: 'Faculty Advisor',
-      department: 'Computer Science',
-      image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Sarah-Mitchell&backgroundColor=6366f1',
-      bio: 'Ph.D. in Artificial Intelligence with 15+ years of experience in machine learning and neural networks. Passionate about mentoring student innovators.',
+      name: 'Dr. Anand Kumar Shukla',
+      title: 'Head of School',
+      department: 'SCA',
+      image: '/images/faculties/DrAnand.jpg',
+      bio: 'Leadership is about inspiring others to achieve greatnes.',
       specialties: ['AI/ML', 'Deep Learning', 'Research'],
       gradient: 'from-indigo-600 to-blue-600',
       icon: GraduationCap
     },
     {
-      name: 'Prof. Michael Chen',
-      title: 'Technical Mentor',
-      department: 'Software Engineering',
-      image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Michael-Chen&backgroundColor=8b5cf6',
-      bio: 'Former Google engineer specializing in distributed systems and cloud architecture. Leads our advanced workshops on scalable application development.',
-      specialties: ['Cloud Computing', 'System Design', 'DevOps'],
+      name: 'Dr. Rishi Chopra',
+      title: 'Controller of School',
+      department: 'SCA',
+      image: '/images/faculties/DrRishi.jpg',
+      bio: 'AI and Machine Learning are shaping the future of innovation.',
+      specialties: ['AI/ML', 'Deep Learning', 'Research'],
       gradient: 'from-purple-600 to-pink-600',
       icon: Award
     },
     {
-      name: 'Dr. Emily Rodriguez',
-      title: 'Innovation Lead',
-      department: 'Cybersecurity',
-      image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Emily-Rodriguez&backgroundColor=ec4899',
-      bio: 'Cybersecurity expert and ethical hacking specialist. Guides students through capture-the-flag competitions and security research projects.',
+      name: 'Dr. Balraj Kumar',
+      title: 'Associate Professor & Asst. Dean',
+      department: 'SCA',
+      image: '/images/faculties/DrBalraj.jpg',
+      bio: 'Education is not about tools, it’s about transforming minds.',
       specialties: ['Security', 'Cryptography', 'Ethical Hacking'],
       gradient: 'from-pink-600 to-rose-600',
       icon: Star
     },
     {
-      name: 'Prof. James Anderson',
-      title: 'Industry Liaison',
-      department: 'Web Technologies',
-      image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=James-Anderson&backgroundColor=14b8a6',
-      bio: 'Full-stack developer with startup experience. Connects students with internship opportunities and provides career mentorship in modern web development.',
-      specialties: ['Web Dev', 'React', 'Node.js'],
+      name: 'Dr. Pawan Kumar',
+      title: 'Associate Professor & Dy.Dean',
+      department: 'SCA',
+      image: '/images/faculties/DrPawan.jpg',
+      bio: 'True leadership inspires minds to think beyond limits.',
+      specialties: [],
       gradient: 'from-teal-600 to-cyan-600',
       icon: BookOpen
-    }
+    },
+    {
+      name: 'Dr. Sartaj Singh',
+      title: 'Head of Data Sciences & Data Analytics',
+      department: 'SCA',
+      image: '/images/faculties/DrSartaj.jpg',
+      bio: 'Data is the oil of the 21st century, and analytics is its engine.',
+      specialties: [' Data Security'],
+      gradient: 'from-pink-600 to-rose-600',
+      icon: Star
+    },
+    {
+      name: 'Mr. Ajay Kumar Bansal',
+      title: 'Assistant Professor',
+      department: 'SCA',
+      image: '/images/faculties/MrAjay.jpg',
+      bio: 'Problem-solving and coding open the door to endless creativity.',
+      specialties: ['Coding','DSA'],
+      gradient: 'from-pink-600 to-rose-600',
+      icon: Star
+    },
+    {
+      name: 'Dr. Gurpreet Singh Bhatia',
+      title: 'Head of COD, Mathematics',
+      department: 'SCA',
+      image: '/images/faculties/DrGurpreet.jpeg',
+      bio: 'Mathematics is the language in which the universe is written.',
+      specialties: ['Mathematics','Complex Algorithms'],
+      gradient: 'from-pink-600 to-rose-600',
+      icon: Star
+    },
   ];
 
   useEffect(() => {
