@@ -44,7 +44,7 @@ export function Contact() {
                 {
                   icon: MapPin,
                   title: 'Visit Us',
-                  content: ['Innovation Center, Room 205', 'Hours: Mon-Fri, 4-6 PM'],
+                  content: ['Block-38, Room 507', 'Hours: Mon-Fri, 4-6 PM'],
                   gradient: 'from-pink-600 to-rose-600'
                 }
               ].map((item, index) => {
@@ -103,74 +103,7 @@ export function Contact() {
           >
             <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/20 to-purple-600/20 rounded-3xl blur-xl opacity-50 group-hover:opacity-70 transition-opacity duration-300"></div>
             
-            <div className="relative bg-white/5 backdrop-blur-sm border border-indigo-500/20 rounded-3xl p-8">
-              <h3 className="text-2xl mb-6 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-                Send Us a Message
-              </h3>
-              
-              <form className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm mb-2 text-slate-300">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="w-full px-4 py-3 bg-white/5 border border-indigo-500/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all text-white placeholder-slate-500"
-                    placeholder="Your name"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm mb-2 text-slate-300">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="w-full px-4 py-3 bg-white/5 border border-indigo-500/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all text-white placeholder-slate-500"
-                    placeholder="your.email@example.com"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="subject" className="block text-sm mb-2 text-slate-300">
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    className="w-full px-4 py-3 bg-white/5 border border-indigo-500/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all text-white placeholder-slate-500"
-                    placeholder="What's this about?"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm mb-2 text-slate-300">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={5}
-                    className="w-full px-4 py-3 bg-white/5 border border-indigo-500/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all text-white placeholder-slate-500 resize-none"
-                    placeholder="Your message..."
-                  ></textarea>
-                </div>
-
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  type="submit"
-                  className="w-full relative py-3 px-6 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-xl overflow-hidden group/btn"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
-                  <span className="relative flex items-center justify-center gap-2 text-white">
-                    Send Message
-                    <Send className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </span>
-                </motion.button>
-              </form>
-            </div>
+           
           </motion.div>
         </div>
       </div>
