@@ -19,7 +19,7 @@ export function About() {
     {
       icon: Code2,
       title: 'Learn & Grow',
-      description: 'Master cutting-edge technologies through hands-on workshops, expert mentorship, and structured learning paths.',
+      description: 'Master cutting-edge technologies through hands-on workshops, expert mentorship.',
       gradient: 'from-indigo-600 to-indigo-800',
       glowGradient: 'from-indigo-600/20 to-indigo-900/20',
       shadowColor: 'shadow-indigo-500/50',
@@ -28,7 +28,7 @@ export function About() {
     {
       icon: Users,
       title: 'Collaborate',
-      description: 'Build real-world projects with talented peers, contribute to open-source, and create portfolio-worthy work.',
+      description: 'Partcipate in Workshops & Hackathons , contribute to open-source, and create portfolio-worthy work.',
       gradient: 'from-purple-600 to-purple-800',
       glowGradient: 'from-purple-600/20 to-purple-900/20',
       shadowColor: 'shadow-purple-500/50',
@@ -37,7 +37,7 @@ export function About() {
     {
       icon: Lightbulb,
       title: 'Innovate',
-      description: 'Transform ideas into reality through hackathons, innovation challenges, and startup incubation programs.',
+      description: 'Transform ideas into reality through hackathons, innovation challenges',
       gradient: 'from-pink-600 to-pink-800',
       glowGradient: 'from-pink-600/20 to-pink-900/20',
       shadowColor: 'shadow-pink-500/50',
@@ -55,7 +55,7 @@ export function About() {
     {
       icon: Zap,
       title: 'Fast-Track',
-      description: 'Accelerate your career with industry connections, internship opportunities, and professional networking.',
+      description: 'Accelerate your career with industry connections',
       gradient: 'from-violet-600 to-violet-800',
       glowGradient: 'from-violet-600/20 to-violet-900/20',
       shadowColor: 'shadow-violet-500/50',
@@ -64,7 +64,7 @@ export function About() {
     {
       icon: Target,
       title: 'Achieve',
-      description: 'Set and accomplish your coding goals with personalized roadmaps, milestones, and community support.',
+      description: 'Set and accomplish your coding goals with personalized roadmaps, milestones',
       gradient: 'from-fuchsia-600 to-fuchsia-800',
       glowGradient: 'from-fuchsia-600/20 to-fuchsia-900/20',
       shadowColor: 'shadow-fuchsia-500/50',
@@ -302,7 +302,7 @@ export function About() {
                   className="text-purple-400 font-semibold"
                   whileHover={{ scale: 1.05, display: "inline-block" }}
                 >
-                  {' '}collaborate on impactful projects
+                  {' '}collaborate on Workshops and Hackathons
                 </motion.span>, and 
                 <motion.span
                   className="text-pink-400 font-semibold"

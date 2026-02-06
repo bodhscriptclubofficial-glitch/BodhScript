@@ -6,7 +6,6 @@ export function Footer() {
     { label: 'About', href: '#about' },
     { label: 'Events', href: '#events' },
     { label: 'Team', href: '#team' },
-    { label: 'Resources', href: '#resources' }
   ];
 
   const resources = [
@@ -89,46 +88,10 @@ export function Footer() {
           </div>
 
           {/* Resources */}
-          <div>
-            <h4 className="mb-4 text-lg">Resources</h4>
-            <ul className="space-y-2">
-              {resources.map((link, index) => (
-                <motion.li
-                  key={index}
-                  whileHover={{ x: 5 }}
-                >
-                  <a
-                    href={link.href}
-                    className="text-slate-400 hover:text-indigo-400 transition-colors text-sm"
-                  >
-                    {link.label}
-                  </a>
-                </motion.li>
-              ))}
-            </ul>
-          </div>
+        
 
           {/* Newsletter */}
-          <div>
-            <h4 className="mb-4 text-lg">Stay Updated</h4>
-            <p className="text-slate-400 text-sm mb-4">
-              Get the latest events and updates delivered to your inbox.
-            </p>
-            <div className="flex gap-2">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="flex-1 px-4 py-2 bg-white/5 border border-indigo-500/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm text-white placeholder-slate-500"
-              />
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-indigo-600 to-purple-600 px-4 py-2 rounded-lg"
-              >
-                <Mail className="w-4 h-4" />
-              </motion.button>
-            </div>
-          </div>
+        
         </div>
 
         {/* Bottom Bar */}

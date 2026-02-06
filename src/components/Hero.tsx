@@ -126,7 +126,7 @@ export function Hero() {
               className="text-xl text-slate-400 mb-8 leading-relaxed"
             >
               Transform your passion into expertise at <span className="text-indigo-400 font-semibold">bodhscript</span>. 
-              Master cutting-edge technologies, collaborate on real projects, and join a community 
+              Master cutting-edge technologies, collaborate on Hackathons, and join a community 
               of innovators shaping tomorrow.
             </motion.p>
 
@@ -180,9 +180,8 @@ export function Hero() {
               className="grid grid-cols-3 gap-6"
             >
               {[
-                { icon: Code2, value: 50, label: 'Projects', gradient: 'from-indigo-600 to-indigo-800', iconColor: 'text-indigo-400', glowColor: 'bg-indigo-600/20' },
-                { icon: Users, value: 500, label: 'Members', gradient: 'from-purple-600 to-purple-800', iconColor: 'text-purple-400', glowColor: 'bg-purple-600/20' },
-                { icon: Calendar, value: 30, label: 'Events', gradient: 'from-pink-600 to-pink-800', iconColor: 'text-pink-400', glowColor: 'bg-pink-600/20' }
+                { icon: Users, value: 11, label: 'Members', gradient: 'from-purple-600 to-purple-800', iconColor: 'text-purple-400', glowColor: 'bg-purple-600/20' },
+                { icon: Calendar, value: 3, label: 'Events', gradient: 'from-pink-600 to-pink-800', iconColor: 'text-pink-400', glowColor: 'bg-pink-600/20' }
               ].map((stat, index) => {
                 const Icon = stat.icon;
                 return (
